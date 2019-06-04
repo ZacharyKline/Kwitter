@@ -16,7 +16,7 @@ export default class Navbar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu>
+      <Menu inverted>
         <Menu.Item
           name="home"
           active={activeItem === "home"}
@@ -25,6 +25,11 @@ export default class Navbar extends Component {
         <Menu.Item
           name="profile"
           active={activeItem === "profile"}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name="login"
+          active={activeItem === "login"}
           onClick={this.handleItemClick}
         />
       </Menu>
