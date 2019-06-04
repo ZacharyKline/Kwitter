@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { loginThenGoToUserProfile as login } from "../actions";
 import Spinner from "react-spinkit";
 
+//TODO: bug fix, (Unexpected token < in JSON at position 0)
+
 class LoginForm extends Component {
   state = { username: "", password: "" };
 
