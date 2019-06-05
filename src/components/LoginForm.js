@@ -122,6 +122,7 @@ class LoginForm extends Component {
     } else {
       return (
         <React.Fragment>
+          <Navbar />
           <div style={{ backgroundColor: "#405DBA" }}>
             <div className="login__Box">
               <div
