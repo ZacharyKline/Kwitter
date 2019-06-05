@@ -4,6 +4,7 @@ import { loginThenGoToUserProfile as login } from "../actions";
 import { Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import Spinner from "react-spinkit";
+import Navbar from "./Navbar";
 import "../index.css";
 
 //TODO: bug fix, (Unexpected token < in JSON at position 0)
@@ -33,6 +34,7 @@ class LoginForm extends Component {
     if (this.state.active) {
       return (
         <React.Fragment>
+          <Navbar />
           <div style={{ backgroundColor: "#405DBA" }}>
             <div className="login__Box">
               <div
@@ -120,6 +122,7 @@ class LoginForm extends Component {
     } else {
       return (
         <React.Fragment>
+          <Navbar />
           <div style={{ backgroundColor: "#405DBA" }}>
             <div className="login__Box">
               <div
