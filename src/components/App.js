@@ -1,9 +1,15 @@
 import React, { Component } from "react";
-import Navbar from "./Navbar";
+import { Switch, Route } from "react-router-dom";
+import { LoginForm, UserProfile } from ".";
 
 class App extends Component {
   render() {
-    return <Navbar />;
+    return (
+      <Switch>
+        <Route exact path="/home" render={() => <LoginForm />} />
+        <Route exact path="/profile" render={() => <UserProfile />} />
+      </Switch>
+    );
   }
 }
 
