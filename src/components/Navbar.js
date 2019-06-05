@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, List } from "semantic-ui-react";
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -16,23 +16,22 @@ export default class Navbar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu inverted>
-        <Menu.Item
-          name="home"
-          active={activeItem === "home"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="profile"
-          active={activeItem === "profile"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="login"
-          active={activeItem === "login"}
-          onClick={this.handleItemClick}
-        />
-      </Menu>
+      <List>
+        <Menu>
+          <Menu.Item
+            href="/"
+            name="home"
+            active={activeItem === "home"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            href="/profile"
+            name="profile"
+            active={activeItem === "profile"}
+            onClick={this.handleItemClick}
+          />
+        </Menu>
+      </List>
     );
   }
 }
