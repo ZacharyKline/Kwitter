@@ -10,25 +10,17 @@ document.head.appendChild(styleLink);
 export default class Navbar extends Component {
   state = { activeItem: "home" };
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
   render() {
     const { activeItem } = this.state;
 
     return (
       <List>
         <Menu>
-          <Menu.Item
-            href="/"
-            name="home"
-            active={activeItem === "home"}
-            onClick={this.handleItemClick}
-          />
+          <Menu.Item href="/home" name="home" active={activeItem === "home"} />
           <Menu.Item
             href="/profile"
             name="profile"
             active={activeItem === "profile"}
-            onClick={this.handleItemClick}
           />
         </Menu>
       </List>
