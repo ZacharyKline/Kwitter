@@ -1,10 +1,12 @@
 // export const domain = "https://kwitter-api.herokuapp.com";
-export const domain = "https://kwitter-api.herokuapp.com";
 
+export const domain = "http://localhost:3000";
 export const jsonHeaders = {
   "Content-Type": "application/json",
   Accept: "application/json"
 };
+
+//TODO: Something here? Ask about it.
 
 export const handleJsonResponse = res => {
   if (res.ok) {

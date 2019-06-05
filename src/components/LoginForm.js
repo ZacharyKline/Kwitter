@@ -6,6 +6,8 @@ import "semantic-ui-css/semantic.min.css";
 import Spinner from "react-spinkit";
 import "../index.css";
 
+//TODO: bug fix, (Unexpected token < in JSON at position 0)
+
 class LoginForm extends Component {
   state = { username: "", password: "", active: false };
 

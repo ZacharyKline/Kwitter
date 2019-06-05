@@ -1,5 +1,7 @@
 import { LOGIN, LOGIN_SUCCESS, LOGIN_FAIL } from "../actions";
 
+//TODO: DONT TOUCH
+
 const initialState = {
   loginLoading: false,
   login: null,
