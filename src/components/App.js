@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { LoginForm, UserProfile } from ".";
+import { LoginForm, UserProfile, LogoutUser } from ".";
 import Livefeed from "./Livefeed";
+
 
 class App extends Component {
   render() {
@@ -10,6 +11,8 @@ class App extends Component {
         <Route exact path="/" render={() => <LoginForm />} />
         <Route exact path="/home" render={() => <Livefeed />} />
         <Route exact path="/profile" render={() => <UserProfile />} />
+        <Route exact path="/loggedout" render={() => <LogoutUser />} />
+
       </Switch>
     );
   }

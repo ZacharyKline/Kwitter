@@ -27,6 +27,7 @@ export default class Navbar extends Component {
             name="landing"
             active={activeItem === "landing"}
           />
+          <Menu.Item href="/loggedout" name="loggout" />
         </Menu>
       </List>
     );
