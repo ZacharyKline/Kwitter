@@ -97,7 +97,12 @@ class UserProfile extends Component {
       <Button color='silver'> <Icon name='retweet' /> Rekwits </Button>
       <Label as='a' basic color='green' pointing='left'> 2,048 </Label>
     </Button>
+    <br></br>
+    <br></br>
 
+    <Button as='div' labelPosition='right'>
+      <Button color='silver'> <Icon name='delete' /> Delete Profile </Button>
+    </Button>
 
       </React.Fragment>
     )
