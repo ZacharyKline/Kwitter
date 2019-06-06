@@ -8,8 +8,6 @@ import Navbar from "./Navbar";
 import "../index.css";
 import Registration from "./Registration";
 
-//TODO: bug fix, (Unexpected token < in JSON at position 0)
-
 class LoginForm extends Component {
   state = { username: "", password: "", active: false };
 
