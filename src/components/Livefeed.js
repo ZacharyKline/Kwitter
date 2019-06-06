@@ -8,7 +8,7 @@ class Livefeed extends Component {
     return (
       <React.Fragment>
         <Navbar />
-        <p>This is the user's livefeed when logged in</p>
+        <div className="feedArea"></div>
       </React.Fragment>
     );
   }
