@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/home" render={() => <LoginForm />} />
+        <Route exact path="/" render={() => <LoginForm />} />
         <Route exact path="/profile" render={() => <UserProfile />} />
       </Switch>
     );

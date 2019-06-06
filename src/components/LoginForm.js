@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginThenGoToUserProfile as login } from "../actions";
 import { Button } from "semantic-ui-react";
-import "semantic-ui-css/semantic.min.css";
+import "semantic-ui-cgss/semantic.min.css";
 import Spinner from "react-spinkit";
 import Navbar from "./Navbar";
 import "../index.css";
@@ -35,16 +35,17 @@ class LoginForm extends Component {
       return (
         <React.Fragment>
           <Navbar />
-          <div style={{ backgroundColor: "#405DBA" }}>
+          <div style={{}}>
             <div className="login__Box">
               <div
-                class="ui placeholder segment"
+                id="test"
+                className="ui placeholder segment"
                 style={{ backgroundColor: "#5D9DE6" }}
               >
-                <div class="ui two column very relaxed stackable grid">
-                  <div class="column">
-                    <div class="ui form">
-                      <div class="field">
+                <div className="ui two column very relaxed stackable grid">
+                  <div className="column">
+                    <div className="ui form">
+                      <div className="field">
                         <h1 className="login__Text">Login</h1>
                         <form onSubmit={this.handleLogin}>
                           <label htmlFor="username">Username:</label>
@@ -62,7 +63,7 @@ class LoginForm extends Component {
                             required
                             onChange={this.handleChange}
                           />
-                          <Button class="" type="submit" disabled={isLoading}>
+                          <Button className="" type="submit" disabled={isLoading}>
                             Login
                           </Button>
                         </form>
@@ -71,9 +72,9 @@ class LoginForm extends Component {
                       </div>
                     </div>
                   </div>
-                  <div class="middle aligned column">
-                    <div class="ui form">
-                      <div class="field">
+                  <div className="middle aligned column">
+                    <div className="ui form">
+                      <div className="field">
                         <Button
                           className="registerButton"
                           onClick={this.handleToggle}
@@ -104,8 +105,8 @@ class LoginForm extends Component {
                             onChange={this.handleChange}
                           />
 
-                          <Button class="ui big button">
-                            <i class="signup icon" />
+                          <Button className="ui big button">
+                            <i className="signup icon" />
                             Submit
                           </Button>
                         </form>
@@ -113,7 +114,7 @@ class LoginForm extends Component {
                     </div>
                   </div>
                 </div>
-                <div class="ui vertical divider" />
+                <div className="ui vertical divider" />
               </div>
             </div>
           </div>
@@ -126,13 +127,13 @@ class LoginForm extends Component {
           <div style={{ backgroundColor: "#405DBA" }}>
             <div className="login__Box">
               <div
-                class="ui placeholder segment"
+                className="ui placeholder segment"
                 style={{ backgroundColor: "#5D9DE6" }}
               >
-                <div class="ui two column very relaxed stackable grid">
-                  <div class="column">
-                    <div class="ui form">
-                      <div class="field">
+                <div className="ui two column very relaxed stackable grid">
+                  <div className="column">
+                    <div className="ui form">
+                      <div className="field">
                         <h1 className="login__Text">Login</h1>
                         <form onSubmit={this.handleLogin}>
                           <label htmlFor="username">Username:</label>
@@ -150,7 +151,7 @@ class LoginForm extends Component {
                             required
                             onChange={this.handleChange}
                           />
-                          <Button class="" type="submit" disabled={isLoading}>
+                          <Button className="" type="submit" disabled={isLoading}>
                             Login
                           </Button>
                         </form>
@@ -159,7 +160,7 @@ class LoginForm extends Component {
                       </div>
                     </div>
                   </div>
-                  <div class="middle aligned column">
+                  <div className="middle aligned column">
                     <Button
                       className="registerButton"
                       onClick={this.handleToggle}
@@ -168,7 +169,7 @@ class LoginForm extends Component {
                     </Button>
                   </div>
                 </div>
-                <div class="ui vertical divider" />
+                <div className="ui vertical divider" />
               </div>
             </div>
           </div>
