@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import React, { Component } from "react";
-// import Image, {Component} from "react";
+import { Card, Icon, Header, Placeholder, Segment, Label, Button } from 'semantic-ui-react'
 
 //TODO: decide what will be displayed
 
@@ -16,9 +16,12 @@ class UserProfile extends Component {
     username: " ", 
     img: " ", 
     bio: " ", 
+    birthdate: " ",
     // userBar
+    kwits: " ",
     following: " ",
     followers: " ",
+    logout: " ",
     // userContent
     content: " ", 
     likes: " ",
@@ -68,3 +71,5 @@ class UserProfile extends Component {
 }
 
 export default UserProfile;
+
+
