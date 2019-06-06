@@ -1,4 +1,5 @@
 body {
+  background-color: #405DBA !important;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -6,9 +7,43 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+}
+
+#root {
+  height: 100%
+}
+
+#test {
+  height: 100%
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.login__Box {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  box-sizing: border-box;
+}
+
+.login__Text {
+  font-size: 60px;
+  color: grey;
+  text-shadow: 2px 2px darkslategray
+}
+
+.ui.placeholder {
+  border: 4px solid black !important;
+}
+
+ui.button.registerButton {
+  display: flex;
+  justify-content: flex-start ;
 }

@@ -3,15 +3,15 @@ import Navbar from "./Navbar";
 
 //TODO: decide what will be displayed
 
-class UserProfile extends Component {
+class Livefeed extends Component {
   render() {
     return (
       <React.Fragment>
         <Navbar />
-        <p>This is the user profile</p>
+        <p>This is the user's livefeed when logged in</p>
       </React.Fragment>
     );
   }
 }
 
-export default UserProfile;
+export default Livefeed;

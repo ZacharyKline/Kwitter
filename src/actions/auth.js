@@ -1,6 +1,8 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 import { push } from "connected-react-router";
 
+//TODO: DO NOT TOUCH
+
 // action types
 export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -13,7 +15,7 @@ const login = loginData => dispatch => {
   dispatch({
     type: LOGIN
   });
-
+  console.log(loginData);
   return fetch(url + "/login", {
     method: "POST",
     headers: jsonHeaders,
