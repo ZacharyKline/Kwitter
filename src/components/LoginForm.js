@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginThenGoToUserProfile as login } from "../actions";
 import { Button } from "semantic-ui-react";
-import "semantic-ui-cgss/semantic.min.css";
+import "semantic-ui-css/semantic.min.css";
 import Spinner from "react-spinkit";
 import Navbar from "./Navbar";
 import "../index.css";
