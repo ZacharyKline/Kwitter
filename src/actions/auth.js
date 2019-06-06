@@ -15,7 +15,7 @@ const login = loginData => dispatch => {
   dispatch({
     type: LOGIN
   });
-
+  console.log(loginData);
   return fetch(url + "/login", {
     method: "POST",
     headers: jsonHeaders,
