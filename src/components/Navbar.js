@@ -22,6 +22,11 @@ export default class Navbar extends Component {
             name="profile"
             active={activeItem === "profile"}
           />
+          <Menu.Item
+            href="/"
+            name="landing"
+            active={activeItem === "landing"}
+          />
         </Menu>
       </List>
     );
