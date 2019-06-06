@@ -1,4 +1,6 @@
 body {
+  background-image: url('./img/kenzie_logo.png') !important;
+  background-repeat: no-repeat !important;
   background-color: #405DBA !important;
   margin: 0;
   padding: 0;
@@ -46,4 +48,15 @@ code {
 ui.button.registerButton {
   display: flex;
   justify-content: flex-start ;
+}
+
+.buttonTesting {
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+.feedTest {
+  display: flex;
+  justify-content: center
 }
