@@ -1,24 +1,5 @@
-// import React, { Component } from "react";
-// import Navbar from "./Navbar";
-
-// //TODO: decide what will be displayed
-
-// class UserProfile extends Component {
-//   render() {
-//     return (
-//       <React.Fragment>
-//         <Navbar />
-//         <p>This is the user profile</p>
-//       </React.Fragment>
-//     );
-//   }
-// }
-
-// export default UserProfile;
-
-
 import React, { Component } from "react";
-// import Image, {Component} from "react";
+import { Card, Icon, Header, Placeholder, Segment, Label, Button } from 'semantic-ui-react'
 
 //TODO: decide what will be displayed
 
@@ -34,9 +15,12 @@ class UserProfile extends Component {
     username: " ", 
     img: " ", 
     bio: " ", 
+    birthdate: " ",
     // userBar
+    kwits: " ",
     following: " ",
     followers: " ",
+    logout: " ",
     // userContent
     content: " ", 
     likes: " ",
@@ -48,38 +32,78 @@ class UserProfile extends Component {
 
   render() {
     return (
-    <div className = "userProfile">
+<React.Fragment>
+ 
 
-    <div className = "userBar">
-    <h5>Following: {this.state.following}</h5>
-    <h5>Followers: {this.state.followers}</h5>
-    </div>
+     <Card>
+       {/* userInfo */}
+       <Segment>
+       <Placeholder style={{ height: 150, width: 150 }}> {this.state.img} image goes here <Placeholder.Image /> </Placeholder>
+       </Segment>
 
-    <div className = "userInfo"> 
-    <p>This is the user profile</p>
-    <h1>{this.state.username}</h1>
-    <image src= {this.state.img}></image>
-    <h3>Bio: {this.state.bio}</h3>
-    </div>
-    
-    <div className = "userContent">
-    <p>Users post here... {this.state.content}</p>
-    <button> Load media here... </button>
-    <h5>Likes: {this.state.like}</h5>
-    <button>Click to Like</button>
-    <h5>Comments: {this.state.comments}</h5>
-    <button>Click to Comment</button>
-    <h5>Rekwits: {this.state.rekwit}</h5>
-    <button>Click to Rekwit</button>
-    </div>
+     <Card.Content>
+      <Card.Header>Username: {this.state.username}</Card.Header>
+      <Card.Meta>
+        <span className = "userHandler">@ {this.state.username}</span>
+        <br></br>
+        <br></br>
+        </Card.Meta>
+      <Card.Description> Bio: {this.state.bio} Some stuff about the stuff will go here. </Card.Description>
+      <Card.Meta>
+        <br></br>
+        
+        <span className = "bday"> Birthday: {this.state.birthdate} </span>
+        <br></br>
+        <span className = "date">Joined in 2019</span>
+        </Card.Meta>
+     </Card.Content>
 
-    <div className = "logo">
-    <image src = {this.state.kwitterLogo}></image>
-    </div>
-    
-    </div>
+     <Header as='h4'>
+    <Icon.Group size='large'>
+      <Icon name='twitter' />
+      <Icon corner name='add' />
+    </Icon.Group>
+    Add on Kwitter
+  </Header>
+     </Card>
+
+     <Card.Description> Content: {this.state.content} Some stuff about the stuff will go below. </Card.Description>
+
+     <Placeholder fluid>
+    <Placeholder.Header image>
+      <Placeholder.Line />
+      <Placeholder.Line />
+    </Placeholder.Header>
+    <Placeholder.Paragraph>
+      <Placeholder.Line />
+      <Placeholder.Line />
+      <Placeholder.Line />
+    </Placeholder.Paragraph>
+  </Placeholder>
+
+ <br></br>
+
+<Button as='div' labelPosition='right'>
+      <Button color='silver'> <Icon name='heart' /> Likes </Button>
+      <Label as='a' basic color='red' pointing='left'> 2,048 </Label>
+    </Button>
+
+    <Button as='div' labelPosition='right'>
+      <Button color='silver'> <Icon name='edit' /> Comments </Button>
+      <Label as='a' basic color='blue' pointing='left'> 2,048 </Label>
+    </Button>
+
+    <Button as='div' labelPosition='right'>
+      <Button color='silver'> <Icon name='retweet' /> Rekwits </Button>
+      <Label as='a' basic color='green' pointing='left'> 2,048 </Label>
+    </Button>
+
+
+      </React.Fragment>
     )
   }
 }
 
 export default UserProfile;
+
+
