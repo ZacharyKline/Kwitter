@@ -1,22 +1,4 @@
-// import React, { Component } from "react";
-// import Navbar from "./Navbar";
-
-// //TODO: decide what will be displayed
-
-// class UserProfile extends Component {
-//   render() {
-//     return (
-//       <React.Fragment>
-//         <Navbar />
-//         <p>This is the user profile</p>
-//       </React.Fragment>
-//     );
-//   }
-// }
-
-// export default UserProfile;
-
-
+import Navbar from "./Navbar";
 import React, { Component } from "react";
 // import Image, {Component} from "react";
 
@@ -48,6 +30,8 @@ class UserProfile extends Component {
 
   render() {
     return (
+      <React.Fragment>
+      <Navbar/>
     <div className = "userProfile">
 
     <div className = "userBar">
@@ -78,6 +62,7 @@ class UserProfile extends Component {
     </div>
     
     </div>
+    </React.Fragment>
     )
   }
 }

@@ -19,16 +19,23 @@ class LoginForm extends Component {
     });
   };
 
-  handleRegister = event => {};
+  handleRegister = e => {
+    e.preventDefault();
+    this.props.register(this.state);
+  };
 
   handleLogin = e => {
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.login({
+      username: this.state.username,
+      password: this.state.password
+    });
   };
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   render() {
     const { isLoading, err } = this.props;
     if (this.state.active) {
@@ -63,7 +70,11 @@ class LoginForm extends Component {
                             required
                             onChange={this.handleChange}
                           />
-                          <Button className="" type="submit" disabled={isLoading}>
+                          <Button
+                            className=""
+                            type="submit"
+                            disabled={isLoading}
+                          >
                             Login
                           </Button>
                         </form>
@@ -151,7 +162,11 @@ class LoginForm extends Component {
                             required
                             onChange={this.handleChange}
                           />
-                          <Button className="" type="submit" disabled={isLoading}>
+                          <Button
+                            className=""
+                            type="submit"
+                            disabled={isLoading}
+                          >
                             Login
                           </Button>
                         </form>
