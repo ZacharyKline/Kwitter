@@ -8,8 +8,8 @@ class MessagePlatform extends Component {
 
   render() {
     return (
-      <div>
-        <React.Fragment>
+      <React.Fragment>
+        <div style={{ backgroundColor: "#5D9DE6" }}>
           <Comment.Group>
             <Comment>
               <Comment.Content>
@@ -30,9 +30,11 @@ class MessagePlatform extends Component {
               </Comment.Content>
             </Comment>
           </Comment.Group>
-        </React.Fragment>
-      </div>
-    );
+        </div>
+        
+      </React.Fragment>
+    )
   }
 }
+
 export default MessagePlatform;

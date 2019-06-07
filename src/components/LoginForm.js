@@ -101,12 +101,10 @@ class LoginForm extends Component {
       return (
         <React.Fragment>
           <Navbar />
-          <div style={{ backgroundColor: "#405DBA" }}>
+          <div>
             <div className="login__Box">
-              <div
-                className="ui placeholder segment"
-                style={{ backgroundColor: "#5D9DE6" }}
-              >
+              <div className="ui placeholder segment"
+              style={{ backgroundColor: "#5D9DE6" }}>
                 <div className="ui two column very relaxed stackable grid">
                   <div className="column">
                     <div className="ui form">
