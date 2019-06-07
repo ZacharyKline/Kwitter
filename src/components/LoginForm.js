@@ -4,7 +4,6 @@ import { loginThenGoToUserProfile as login } from "../actions";
 import { Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import Spinner from "react-spinkit";
-import Navbar from "./Navbar";
 import "../index.css";
 import Registration from "./Registration";
 
@@ -35,7 +34,6 @@ class LoginForm extends Component {
     if (this.state.active) {
       return (
         <React.Fragment>
-          <Navbar />
           <div style={{}}>
             <div className="login__Box">
               <div
@@ -100,11 +98,12 @@ class LoginForm extends Component {
     } else {
       return (
         <React.Fragment>
-          <Navbar />
           <div>
             <div className="login__Box">
-              <div className="ui placeholder segment"
-              style={{ backgroundColor: "#5D9DE6" }}>
+              <div
+                className="ui placeholder segment"
+                style={{ backgroundColor: "#5D9DE6" }}
+              >
                 <div className="ui two column very relaxed stackable grid">
                   <div className="column">
                     <div className="ui form">
