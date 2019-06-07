@@ -1,4 +1,3 @@
-import Navbar from "./Navbar";
 import React, { Component } from "react";
 import {
   Card,
@@ -41,7 +40,6 @@ class UserProfile extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar />
         <Card>
           {/* userInfo */}
           <Segment>
