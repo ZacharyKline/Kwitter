@@ -1,14 +1,7 @@
 import React, { Component } from "react";
-import {
-  Feed,
-  Card,
-  Icon,
-  Container,
-  Message,
-  Button
-} from "semantic-ui-react";
+import { Icon, Message, Button } from "semantic-ui-react";
 
-class Feed extends Component {
+export default class Feed extends Component {
   state = {
     messages: []
   };
