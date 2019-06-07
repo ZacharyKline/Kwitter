@@ -1,8 +1,10 @@
 import React from "react";
 import { Component } from "react";
 import { Button } from "semantic-ui-react";
+import { registerThenGoToUserProfile as register } from "../actions/register.js";
+import { connect } from "react-redux";
 
-export default class Registration extends Component {
+export class Registration extends Component {
   state = { username: "", displayName: "", password: "" };
   handleRegister = e => {
     e.preventDefault();
@@ -25,7 +27,7 @@ export default class Registration extends Component {
           onChange={this.handleChange}
         />
         <form onSubmit={this.handleRegister}>
-          <label htmlFor="name">Display Name:</label>
+          <label htmlFor="displayName">Display Name:</label>
           <input
             type="text"
             name="displayName"
@@ -49,3 +51,19 @@ export default class Registration extends Component {
     );
   }
 }
+
+function mapStateToProps({ auth }) {
+  return {
+    registerLoading: auth.registerLoading,
+    registerError: auth.registerError
+  };
+}
+
+const mapDispatchToProps = {
+  register
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Registration);

@@ -101,7 +101,7 @@ class UserProfile extends Component {
         <br />
 
         <Button as="div" labelPosition="right">
-          <Button color="silver">
+          <Button color="teal">
             {" "}
             <Icon name="heart" /> Likes{" "}
           </Button>
@@ -112,7 +112,7 @@ class UserProfile extends Component {
         </Button>
 
         <Button as="div" labelPosition="right">
-          <Button color="silver">
+          <Button color="teal">
             {" "}
             <Icon name="edit" /> Comments{" "}
           </Button>
@@ -123,7 +123,7 @@ class UserProfile extends Component {
         </Button>
 
         <Button as="div" labelPosition="right">
-          <Button color="silver">
+          <Button color="teal">
             {" "}
             <Icon name="retweet" /> Rekwits{" "}
           </Button>
@@ -136,7 +136,7 @@ class UserProfile extends Component {
         <br />
 
         <Button as="div" labelPosition="right">
-          <Button color="silver">
+          <Button color="teal">
             {" "}
             <Icon name="delete" /> Delete Profile{" "}
           </Button>
