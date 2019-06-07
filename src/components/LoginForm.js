@@ -6,8 +6,7 @@ import "semantic-ui-css/semantic.min.css";
 import Spinner from "react-spinkit";
 import Navbar from "./Navbar";
 import "../index.css";
-
-//TODO: bug fix, (Unexpected token < in JSON at position 0)
+import Registration from "./Registration";
 
 class LoginForm extends Component {
   state = { username: "", password: "", active: false };
@@ -17,11 +16,6 @@ class LoginForm extends Component {
     this.setState({
       active: !this.state.active
     });
-  };
-
-  handleRegister = e => {
-    e.preventDefault();
-    this.props.register(this.state);
   };
 
   handleLogin = e => {
@@ -92,35 +86,7 @@ class LoginForm extends Component {
                         >
                           Register?
                         </Button>
-                        <form onSubmit={this.handleRegister}>
-                          <label htmlFor="name">Display Name:</label>
-                          <input
-                            type="text"
-                            name="displayName"
-                            required
-                            onChange={this.handleChange}
-                          />
-                          <label htmlFor="username">Username:</label>
-                          <input
-                            type="text"
-                            name="username"
-                            autoFocus
-                            required
-                            onChange={this.handleChange}
-                          />
-                          <label htmlFor="password">Password:</label>
-                          <input
-                            type="password"
-                            name="password"
-                            required
-                            onChange={this.handleChange}
-                          />
-
-                          <Button className="ui big button">
-                            <i className="signup icon" />
-                            Submit
-                          </Button>
-                        </form>
+                        <Registration />
                       </div>
                     </div>
                   </div>
