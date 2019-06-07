@@ -15,7 +15,7 @@ export default class Navbar extends Component {
 
     return (
       <List>
-        <Menu>
+        <Menu style={{ backgroundColor: "#5D9DE6" }}>
           <Menu.Item href="/home" name="home" active={activeItem === "home"} />
           <Menu.Item
             href="/profile"

@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
-import { Button, Card, Image } from "semantic-ui-react";
-
+import {
+  Card,
+  Image,
+  Grid,
+  Segment,
+  Message,
+  Button,
+  Icon
+} from "semantic-ui-react";
+import MessagePlatform from "./MessagePlatform";
 //TODO: decide what will be displayed
 
 class Livefeed extends Component {
@@ -9,32 +17,45 @@ class Livefeed extends Component {
     return (
       <React.Fragment>
         <Navbar />
-        <div className="bodyContent">
-        <div class="ui vertically divided grid">
-          <div class="three column row">
-            <div class="column">
+        <Grid columns="equal">
+          <Grid.Column>
+            <Segment style={{ backgroundColor: "#5D9DE600" }}>
               <Card>
-                <Image/>
+                <Image />
                 <Card.Content>
-                <Card.Header>DISPLAYNAME HERE</Card.Header>
-                <Card.Description>Bio here?</Card.Description>
-
+                  <Card.Header>DISPLAYNAME HERE</Card.Header>
+                  <Card.Description>Bio here?</Card.Description>
                 </Card.Content>
               </Card>
-            </div>
-            <div class="column">
-            <div className="feedTest">
-            <h1>FEED GOES HERE</h1>
-            </div>
-            </div>
-            <div class="column">
-            <div className="buttonTesting">
-              <Button>Logout Button</Button>
+            </Segment>
+          </Grid.Column>
+          <Grid.Column width={6}>
+            <Segment style={{ backgroundColor: "#405DBA" }}>
+              <MessagePlatform />
+              <br />
+              <br />
+              <div className="exampleMessageTemplate">
+                <Message.Header>Username</Message.Header>
+                <div>Date</div>
+                <br />
+                <div
+                  className="messageText"
+                  style={{ backgroundColor: "lightgrey" }}
+                >
+                  This is the example message to show how it looks
+                </div>
+                <br />
+                <div className="buttonsInputsEtc">
+                  <Button color="teal">
+                    {" "}
+                    <Icon name="heart" /> Like{" "}
+                  </Button>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-        </div>
+            </Segment>
+          </Grid.Column>
+          <Grid.Column />
+        </Grid>
       </React.Fragment>
     );
   }
