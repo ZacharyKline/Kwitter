@@ -89,7 +89,7 @@ class LoginForm extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="ui vertical divider" />
+
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@ class LoginForm extends Component {
                     </Button>
                   </div>
                 </div>
-                <div className="ui vertical divider" />
+
               </div>
             </div>
           </div>

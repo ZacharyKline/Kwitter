@@ -71,12 +71,17 @@ ui.button.registerButton {
 
 .messageText {
   text-align: center;
-  width: 70%;
+  width: 90%;
   margin:auto;
   border: 2px solid black;
+  border-radius: 5px;
 }
 
 .buttonsInputsEtc {
   display: flex;
   justify-content: flex-end;
+}
+
+ui.vertical.divider:after, ui.vertical.divider:before{
+  background-color: black !important;
 }
