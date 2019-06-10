@@ -19,7 +19,9 @@ class MessagePlatform extends Component {
                 </Comment.Metadata>
                 <Comment.Text>Status:</Comment.Text>
                 <Form reply>
-                  <Form.TextArea />
+                <div className="textSpace">
+                  <Form.TextArea/>
+                  </div>
                   <Button
                     content="Post"
                     labelPosition="left"

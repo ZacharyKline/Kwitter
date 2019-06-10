@@ -6,6 +6,8 @@ export class EditProfile extends Component {
     handleEditProfile = event => {
 
     }
+
+    
   render() {
     return (
       <React.Fragment>
@@ -17,7 +19,7 @@ export class EditProfile extends Component {
             >
               <div>
                 <div className="column">
-                  <div className="ui form">
+                  <div className="ui form" style={{ height: 500, width: 350}}>
                     <div className="field">
                       <h1 className="login__Text">Edit Profile</h1>
                       <form onSubmit={this.handleEditProfile}>
