@@ -9,7 +9,7 @@ const url = domain + "/messages";
 
 export const postMessage = messageData => dispatch => {
   const token = store.getState().auth.login.token;
-
+  console.log(messageData);
   return fetch(url, {
     method: "POST",
     headers: { jsonHeaders, Authorization: `Bearer ${token}` },
