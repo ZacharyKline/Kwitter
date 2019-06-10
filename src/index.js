@@ -9,7 +9,7 @@ import configureStore, { history } from "./configureStore";
 
 //TODO: Configure store
 
-const store = configureStore({});
+export const store = configureStore({});
 
 ReactDOM.render(
   <Provider store={store}>

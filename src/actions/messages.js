@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { push } from "connected-react-router";
+import { store } from "../index";
 
 export const MESSAGE_POST = "MESSAGE_POST";
 export const MESSAGE_SUCCESS = "MESSAGE_SUCCESS";
@@ -7,11 +7,12 @@ export const MESSAGE_FAIL = "MESSAGE_FAIL";
 
 const url = domain + "/messages";
 
-const postMessage = messageData => dispatch => {
-  dispatch({ type: MESSAGE_POST });
+export const postMessage = messageData => dispatch => {
+  const token = store.getState().auth.login.token;
+
   return fetch(url, {
     method: "POST",
-    headers: jsonHeaders,
+    headers: { jsonHeaders, Authorization: `Bearer ${token}` },
     body: JSON.stringify(messageData)
   })
     .then(handleJsonResponse)
@@ -24,12 +25,6 @@ const postMessage = messageData => dispatch => {
     })
     .catch(err => {
       console.warn(err.message);
-      return Promise.reject(
-        dispatch({ type: MESSAGE_FAIL, payload: err.message })
-      );
+      return dispatch({ type: MESSAGE_FAIL, payload: err.message });
     });
-};
-
-export const postMessageThenGoToUserProfile = messageData => dispatch => {
-  return dispatch(postMessage(messageData)).then(() => dispatch(push("/")));
 };
