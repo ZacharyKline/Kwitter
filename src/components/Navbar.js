@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Menu, List } from "semantic-ui-react";
+import Logout from "./Logout";
+import { Link } from "react-router-dom";
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -15,18 +17,17 @@ export default class Navbar extends Component {
 
     return (
       <List>
-        <Menu>
-          <Menu.Item href="/home" name="home" active={activeItem === "home"} />
-          <Menu.Item
-            href="/profile"
-            name="profile"
-            active={activeItem === "profile"}
-          />
-          <Menu.Item
-            href="/"
-            name="landing"
-            active={activeItem === "landing"}
-          />
+        <Menu style={{ backgroundColor: "#5D9DE6" }}>
+          <Link to="/home">
+            <Menu.Item name="home" active={activeItem === "home"} />
+          </Link>
+          <Link to="/profile">
+            <Menu.Item name="profile" active={activeItem === "profile"} />
+          </Link>
+          <Link to="/">
+            <Menu.Item name="landing" active={activeItem === "landing"} />
+          </Link>
+          <Logout />
         </Menu>
       </List>
     );

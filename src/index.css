@@ -1,4 +1,6 @@
 body {
+  background-image: url('./img/kenzie_logo.png') !important;
+  background-repeat: repeat-y !important;
   background-color: #405DBA !important;
   margin: 0;
   padding: 0;
@@ -46,4 +48,40 @@ code {
 ui.button.registerButton {
   display: flex;
   justify-content: flex-start ;
+}
+
+.buttonTesting {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.feedTest {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  background: #5D9DE600;
+}
+
+.exampleMessageTemplate {
+  background-color: #5D9DE6;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.messageText {
+  text-align: center;
+  width: 90%;
+  margin:auto;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.buttonsInputsEtc {
+  display: flex;
+  justify-content: flex-end;
+}
+
+ui.vertical.divider:after, ui.vertical.divider:before{
+  background-color: black !important;
 }
