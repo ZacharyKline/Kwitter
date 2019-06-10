@@ -1,6 +1,7 @@
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import React, { Component } from "react";
-import { Card, Icon, Header, Placeholder, Segment, Label, Button } from 'semantic-ui-react'
+import { Card, Icon, Header, Placeholder, Segment, Label, Button } from 'semantic-ui-react';
+
 
 //TODO: decide what will be displayed
 
