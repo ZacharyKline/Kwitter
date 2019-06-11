@@ -8,18 +8,19 @@ class MessagePlatform extends Component {
   messageLength = false;
 
   handleSubmit = event => {
-    const userText = this.state;
-    console.log(this.props);
+    let { text } = this.state;
+
     event.preventDefault();
-    this.props.postMessage(this.state);
-    console.log(event.target.value);
-    event.target.value = "";
-    this.setState({ text: "" });
+
+    if (text.length >= 2 && text.length <= 150) {
+      this.props.postMessage(this.state);
+      event.target.text.value = "";
+      this.setState({ text: "" });
+    }
   };
 
   handleChange = event => {
     this.setState({ text: event.target.value });
-    console.log(this.state);
   };
 
   render() {
@@ -35,10 +36,11 @@ class MessagePlatform extends Component {
                   <div>2 days ago</div>
                 </Comment.Metadata>
                 <Comment.Text>Status:</Comment.Text>
-                <Form>
+                <Form onSubmit={this.handleSubmit}>
                   <Form.Group>
                     <Form.Input
                       placeholder="What's on your mind?"
+                      name="text"
                       onChange={this.handleChange}
                     />
                     <Form.Button
@@ -46,7 +48,6 @@ class MessagePlatform extends Component {
                       labelPosition="left"
                       icon="edit"
                       value={text}
-                      onClick={this.handleSubmit}
                     />
                   </Form.Group>
                 </Form>

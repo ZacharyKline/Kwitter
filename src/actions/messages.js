@@ -24,7 +24,6 @@ export const postMessage = messageData => dispatch => {
       });
     })
     .catch(err => {
-      console.warn(err.message);
       return dispatch({ type: MESSAGE_FAIL, payload: err.message });
     });
 };
