@@ -42,7 +42,7 @@ code {
 }
 
 .ui.placeholder {
-  border: 4px solid black !important;
+  border: 4px solid rgb(0, 0, 0) !important;
 }
 
 ui.button.registerButton {
@@ -84,4 +84,9 @@ ui.button.registerButton {
 
 ui.vertical.divider:after, ui.vertical.divider:before{
   background-color: black !important;
+}
+
+.textSpace{
+  width: 90%;
+  margin: auto;
 }
