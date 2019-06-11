@@ -36,6 +36,7 @@ const login = loginData => dispatch => {
         dispatch({ type: LOGIN_FAIL, payload: err.message })
       );
     });
+    
 };
 
 export const loginThenGoToUserProfile = loginData => dispatch => {
