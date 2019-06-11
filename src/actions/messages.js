@@ -12,7 +12,7 @@ export const postMessage = messageData => dispatch => {
   console.log(messageData);
   return fetch(url, {
     method: "POST",
-    headers: { jsonHeaders, Authorization: `Bearer ${token}` },
+    headers: { ...jsonHeaders, Authorization: `Bearer ${token}` },
     body: JSON.stringify(messageData)
   })
     .then(handleJsonResponse)
