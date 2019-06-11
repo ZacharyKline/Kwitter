@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import { LoginForm, UserProfile } from ".";
 import Livefeed from "./Livefeed";
+import EditProfile from './editProfile'
 import Navbar from "./Navbar";
+
 
 class App extends Component {
   render() {
@@ -13,7 +15,7 @@ class App extends Component {
           <Route exact path="/" render={() => <LoginForm />} />
           <Route exact path="/home" render={() => <Livefeed />} />
           <Route exact path="/profile" render={() => <UserProfile />} />
-          {/* <Route exact path='/logout' render={() => <LogoutUser />} /> */}
+          <Route exact path="/editprofile" render={() => <EditProfile />} />
         </Switch>
       </React.Fragment>
     );

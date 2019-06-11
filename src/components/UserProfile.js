@@ -6,8 +6,12 @@ import {
   Placeholder,
   Segment,
   Label,
-  Button
+  Button,
+  Grid
 } from "semantic-ui-react";
+import { connect } from "react-redux"
+import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions"
+
 
 //TODO: decide what will be displayed
 
@@ -40,12 +44,15 @@ class UserProfile extends Component {
   render() {
     return (
       <React.Fragment>
+        <Grid columns="equal">
+        <Grid.Column>
+            <Segment style={{backgroundColor: "#5D9DE600"}}>
         <Card>
           {/* userInfo */}
           <Segment>
-            <Placeholder style={{ height: 150, width: 150 }}>
+            <Placeholder style={{ height: 150, width: 150}}>
               {" "}
-              {this.state.img} image goes here <Placeholder.Image />{" "}
+              {this.props.img} image goes here <Placeholder.Image />{" "}
             </Placeholder>
           </Segment>
 
@@ -75,29 +82,19 @@ class UserProfile extends Component {
               <Icon corner name="add" />
             </Icon.Group>
             Add on Kwitter
+            <br/>
+
+            
+            <Button as="div" labelPosition="right">
+          <Button color="teal">
+            {" "}
+            <Icon name="edit" /> Edit Profile{" "}
+          </Button>
+        </Button>
+
+
           </Header>
         </Card>
-
-        <Card.Description>
-          {" "}
-          Content: {this.state.content} Some stuff about the stuff will go
-          below.{" "}
-        </Card.Description>
-
-        <Placeholder fluid>
-          <Placeholder.Header image>
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Header>
-          <Placeholder.Paragraph>
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Paragraph>
-        </Placeholder>
-
-        <br />
-
         <Button as="div" labelPosition="right">
           <Button color="teal">
             {" "}
@@ -134,14 +131,47 @@ class UserProfile extends Component {
         <br />
 
         <Button as="div" labelPosition="right">
-          <Button color="teal">
+          <Button onClick={this.props.handleDeleteUser} color="red">
             {" "}
             <Icon name="delete" /> Delete Profile{" "}
           </Button>
         </Button>
+        </Segment>
+        </Grid.Column>
+
+        <Grid.Column width={6}>
+        <Segment style={{ backgroundColor: "#405DBA" }}>
+        <Card.Description>
+          {" "}
+          Content: {this.state.content} Some stuff about the stuff will go
+          below.{" "}
+        </Card.Description>
+
+        <Placeholder fluid>
+          <Placeholder.Header image>
+            <Placeholder.Line />
+            <Placeholder.Line />
+          </Placeholder.Header>
+          <Placeholder.Paragraph>
+            <Placeholder.Line />
+            <Placeholder.Line />
+            <Placeholder.Line />
+          </Placeholder.Paragraph>
+        </Placeholder>
+
+        <br />
+        </Segment>
+        </Grid.Column>
+        <Grid.Column>
+
+        </Grid.Column>
+        </Grid>
       </React.Fragment>
     );
   }
 }
 
-export default UserProfile;
+export default connect(
+  null,
+  { handleDeleteUser }
+)(UserProfile);

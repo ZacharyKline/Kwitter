@@ -33,23 +33,23 @@ class Livefeed extends Component {
               <br />
               <br />
               <div className="exampleMessageTemplate">
-                <Message.Header>Username</Message.Header>
-                <div>Date</div>
-                <br />
-                <div
-                  className="messageText"
-                  style={{ backgroundColor: "lightgrey" }}
-                >
-                  This is the example message to show how it looks
-                </div>
-                <br />
-                <div className="buttonsInputsEtc">
-                  <Button color="teal">
-                    {" "}
-                    <Icon name="heart" /> Like{" "}
-                  </Button>
-                </div>
-              </div>
+          <Message.Header />
+          <div />
+          <br />
+          <div className="messageText" style={{ backgroundColor: "lightgrey" }}>
+            This is the example message to show how it looks
+          </div>
+          <br />
+          <div className="buttonsInputsEtc">
+            <Button color="teal">
+              {" "}
+              <Icon name="heart" /> Like{" "}
+            </Button>
+          </div>
+        </div>
+        <br />
+        <br />
+               
             </Segment>
           </Grid.Column>
           <Grid.Column />
