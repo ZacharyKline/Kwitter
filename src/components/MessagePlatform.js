@@ -5,10 +5,12 @@ import { connect } from "react-redux";
 
 class MessagePlatform extends Component {
   state = { text: "" };
+  messageLength = false;
 
   handleSubmit = event => {
-    let { postMessage } = this.props;
+    // let postMessage = this.props;
     const userText = this.state;
+    console.log("click");
 
     event.preventDefault();
 
@@ -28,32 +30,32 @@ class MessagePlatform extends Component {
     return (
       <React.Fragment>
         <div style={{ backgroundColor: "#5D9DE6" }}>
-          <Comment.Group>
+          {/* <Comment.Group>
             <Comment>
               <Comment.Content>
                 <Comment.Author as="a">User</Comment.Author>
                 <Comment.Metadata>
                   <div>2 days ago</div>
                 </Comment.Metadata>
-                <Comment.Text>Status:</Comment.Text>
-                <Form onSubmit={this.handleSubmit}>
-                  <Form.Group>
-                    <Form.Input
-                      placeholder="What's on your mind?"
-                      onChange={this.handleChange}
-                    />
-                    <Form.Button
-                      labelPosition="left"
-                      icon="edit"
-                      primary
-                      content="Submit"
-                      onClick={this.handleSubmit}
-                    />
-                  </Form.Group>
-                </Form>
-              </Comment.Content>
+                <Comment.Text>Status:</Comment.Text> */}
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group>
+              <Form.Input
+                placeholder="What's on your mind?"
+                name={message}
+                onChange={this.handleChange}
+              />
+              <Form.Button
+                content="Submit"
+                labelPosition="left"
+                icon="edit"
+                onClick={this.handleSubmit}
+              />
+            </Form.Group>
+          </Form>
+          {/* </Comment.Content>
             </Comment>
-          </Comment.Group>
+          </Comment.Group> */}
         </div>
       </React.Fragment>
     );
