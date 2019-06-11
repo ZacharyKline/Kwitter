@@ -1,12 +1,30 @@
 import React, { Component } from "react";
-import { Button, Comment, Form } from "semantic-ui-react";
+import { Comment, Form } from "semantic-ui-react";
+import { postMessage } from "../actions";
+import { connect } from "react-redux";
 
 class MessagePlatform extends Component {
-  state = {
-    messageSubmit: " "
+  state = { text: "" };
+  messageLength = false;
+
+  handleSubmit = event => {
+    let { text } = this.state;
+
+    event.preventDefault();
+
+    if (text.length >= 2 && text.length <= 150) {
+      this.props.postMessage(this.state);
+      event.target.text.value = "";
+      this.setState({ text: "" });
+    }
+  };
+
+  handleChange = event => {
+    this.setState({ text: event.target.value });
   };
 
   render() {
+    const text = this.state;
     return (
       <React.Fragment>
         <div style={{ backgroundColor: "#5D9DE6" }}>
@@ -18,25 +36,41 @@ class MessagePlatform extends Component {
                   <div>2 days ago</div>
                 </Comment.Metadata>
                 <Comment.Text>Status:</Comment.Text>
-                <Form reply>
-                <div className="textSpace">
-                  <Form.TextArea/>
-                  </div>
-                  <Button
-                    content="Post"
-                    labelPosition="left"
-                    icon="edit"
-                    primary
-                  />
+                <Form onSubmit={this.handleSubmit}>
+                  <Form.Group>
+                    <Form.Input
+                      placeholder="What's on your mind?"
+                      name="text"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Button
+                      content="Submit"
+                      labelPosition="left"
+                      icon="edit"
+                      value={text}
+                    />
+                  </Form.Group>
                 </Form>
               </Comment.Content>
             </Comment>
           </Comment.Group>
         </div>
-        
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default MessagePlatform;
+const mapDispatchToProps = {
+  postMessage
+};
+
+function mapStateToProps({ messages }) {
+  return {
+    messages_failed: messages.messages_failed
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MessagePlatform);
