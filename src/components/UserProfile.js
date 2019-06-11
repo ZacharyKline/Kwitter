@@ -9,6 +9,8 @@ import {
   Button,
   Grid
 } from "semantic-ui-react";
+import { connect } from "react-redux"
+import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions"
 
 
 //TODO: decide what will be displayed
@@ -129,7 +131,7 @@ class UserProfile extends Component {
         <br />
 
         <Button as="div" labelPosition="right">
-          <Button color="red">
+          <Button onClick={this.props.handleDeleteUser} color="red">
             {" "}
             <Icon name="delete" /> Delete Profile{" "}
           </Button>
@@ -169,6 +171,7 @@ class UserProfile extends Component {
   }
 }
 
-export default UserProfile;
-
-
+export default connect(
+  null,
+  { handleDeleteUser }
+)(UserProfile);
