@@ -6,8 +6,8 @@ export const GET_Messages_Success = "Get_Messages_Success"
 export const GET_Messages_Failed = "Get_Messages_Failed"
 
 const url = domain + "/messages";
-// added GET_Messages file - Tamekia
-const messagesGet = (userID) => messageData  => postIt => {
+
+const messagesGet = messageData => postIt => {
     postIt({
         type: GET_Messages
     })
@@ -32,6 +32,6 @@ const messagesGet = (userID) => messageData  => postIt => {
 }
 
 export const postToPage = messageData => postIt => {
-    return postIt(messagesGet(userID,messageData)).then(() => postIt(push("/message")))
+    return postIt(messagesGet(messageData)).then(() => postIt(push("/message")))
 }
 
