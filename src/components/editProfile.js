@@ -90,7 +90,7 @@ function mapStateToProps({ auth, editProfile }) {
   return {
     id: auth.login.id,
     displayName: editProfile.displayName,
-    about: editProfile.about,
+    about: editProfile.bio,
     // password: editProfile.password,
     lastUpdated: editProfile.lastUpdated
   };

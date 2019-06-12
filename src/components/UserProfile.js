@@ -5,13 +5,13 @@ import {
   Header,
   Placeholder,
   Segment,
+  Label,
   Button,
   Grid
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions";
 import { Link } from "react-router-dom";
-import {setUserInfo} from '../actions'
 
 //TODO: decide what will be displayed
 
@@ -21,10 +21,25 @@ import {setUserInfo} from '../actions'
 // we would like the page to look
 
 class UserProfile extends Component {
-  componentDidMount() {
-    this.props.setUserInfo(this.props.id);
-  }
-
+  state = {
+    // userInfo
+    username: " ",
+    img: " ",
+    bio: " ",
+    birthdate: " ",
+    // userBar
+    kwits: " ",
+    following: " ",
+    followers: " ",
+    logout: " ",
+    // userContent
+    content: " ",
+    likes: " ",
+    comments: " ",
+    rekwit: " ",
+    // logo
+    kwitterLogo: " "
+  };
 
   render() {
     return (
@@ -37,25 +52,41 @@ class UserProfile extends Component {
                 <Segment>
                   <Placeholder style={{ height: 150, width: 150 }}>
                     {" "}
-                    {} image goes here <Placeholder.Image />{" "}
+                    {this.props.img} image goes here <Placeholder.Image />{" "}
                   </Placeholder>
                 </Segment>
 
                 <Card.Content>
-                  <Card.Header>Username: {}</Card.Header>
+                  <Card.Header>Username: {this.state.username}</Card.Header>
                   <Card.Meta>
-                    <span className="userHandler"> {this.props.displayName}</span>
+                    <span className="userHandler">@ {this.state.username}</span>
                     <br />
                     <br />
                   </Card.Meta>
                   <Card.Description>
                     {" "}
-                    Bio: {this.props.about}
+                    Bio: {this.state.bio} Some stuff about the stuff will go
+                    here.{" "}
                   </Card.Description>
+                  <Card.Meta>
+                    <br />
+
+                    <span className="bday">
+                      {" "}
+                      Birthday: {this.state.birthdate}{" "}
+                    </span>
+                    <br />
+                    <span className="date">Joined in 2019</span>
+                  </Card.Meta>
                 </Card.Content>
 
                 <Header as="h4">
-
+                  <Icon.Group size="large">
+                    <Icon name="twitter" />
+                    <Icon corner name="add" />
+                  </Icon.Group>
+                  Add on Kwitter
+                  <br />
                   <Link to="/editprofile">
                   <Button as="div" labelPosition="right">
                     <Button color="teal">
@@ -66,7 +97,26 @@ class UserProfile extends Component {
                   </Link>
                 </Header>
               </Card>
-
+              <Button as="div" labelPosition="right">
+                <Button color="teal">
+                  {" "}
+                  <Icon name="heart" /> Likes{" "}
+                </Button>
+                <Label as="a" basic color="red" pointing="left">
+                  {" "}
+                  2,048{" "}
+                </Label>
+              </Button>
+              <Button as="div" labelPosition="right">
+                <Button color="teal">
+                  {" "}
+                  <Icon name="edit" /> Comments{" "}
+                </Button>
+                <Label as="a" basic color="blue" pointing="left">
+                  {" "}
+                  2,048{" "}
+                </Label>
+              </Button>
 
               <br />
               <br />
@@ -84,7 +134,7 @@ class UserProfile extends Component {
             <Segment style={{ backgroundColor: "#405DBA" }}>
               <Card.Description>
                 {" "}
-                Content: {} Some stuff about the stuff will go
+                Content: {this.state.content} Some stuff about the stuff will go
                 below.{" "}
               </Card.Description>
 
@@ -110,15 +160,7 @@ class UserProfile extends Component {
   }
 }
 
-function mapStateToProps({ auth, editProfile }) {
-  return {
-    id: auth.login.id,
-    displayName: editProfile.displayName,
-    about: editProfile.about,
-    lastUpdated: editProfile.lastUpdated
-  };
-}
 export default connect(
-  mapStateToProps,
-  { handleDeleteUser, setUserInfo }
+  null,
+  { handleDeleteUser }
 )(UserProfile);

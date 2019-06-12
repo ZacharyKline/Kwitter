@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { setUserInfo } from "../actions";
 import HomeFeed from './Feed'
 import {
   Card,
@@ -15,10 +13,6 @@ import MessagePlatform from "./MessagePlatform";
 //TODO: decide what will be displayed
 
 class Livefeed extends Component {
-  componentDidMount() {
-    this.props.setUserInfo(this.props.id);
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -28,8 +22,8 @@ class Livefeed extends Component {
               <Card>
                 <Image />
                 <Card.Content>
-                  <Card.Header>Display Name: {this.props.displayName}</Card.Header>
-                  <Card.Description>About Me: {this.props.about}</Card.Description>
+                  <Card.Header>DISPLAYNAME HERE</Card.Header>
+                  <Card.Description>Bio here?</Card.Description>
                 </Card.Content>
               </Card>
             </Segment>
@@ -51,20 +45,4 @@ class Livefeed extends Component {
   }
 }
 
-function mapStateToProps({ auth, editProfile }) {
-  return {
-    id: auth.login.id,
-    displayName: editProfile.displayName,
-    about: editProfile.about,
-    // password: editProfile.password,
-    lastUpdated: editProfile.lastUpdated
-  };
-}
-const mapDispatchToProps = {
-  setUserInfo
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Livefeed);
+export default Livefeed;
