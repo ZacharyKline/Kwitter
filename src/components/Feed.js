@@ -32,6 +32,7 @@ class Feed extends Component {
               <Icon name="heart" /> Like{" "}
             </Button>
           </div>
+          {/* add feed semantic */}
           <div className = "feed">
           <Feed size='large'>
           <Feed.Event>
