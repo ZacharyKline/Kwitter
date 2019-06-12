@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setUserInfo } from "../actions";
-
+import HomeFeed from './Feed'
 import {
   Card,
   Image,
@@ -39,24 +39,9 @@ class Livefeed extends Component {
               <MessagePlatform />
               <br />
               <br />
-              <div className="exampleMessageTemplate">
-          <Message.Header />
-          <div />
-          <br />
-          <div className="messageText" style={{ backgroundColor: "lightgrey" }}>
-            This is the example message to show how it looks
-          </div>
-          <br />
-          <div className="buttonsInputsEtc">
-            <Button color="teal">
-              {" "}
-              <Icon name="heart" /> Like{" "}
-            </Button>
-          </div>
-        </div>
-        <br />
-        <br />
-               
+              <HomeFeed />
+              <br />
+              <br />
             </Segment>
           </Grid.Column>
           <Grid.Column />

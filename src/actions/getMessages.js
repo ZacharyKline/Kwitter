@@ -1,37 +1,31 @@
 import {domain, jsonHeaders, handleJsonResponse} from "./constants";
-import {push} from "connected-react-router";
 
-export const GET_Messages = "Get_Messages"
-export const GET_Messages_Success = "Get_Messages_Success"
-export const GET_Messages_Failed = "Get_Messages_Failed"
+export const GET_MESSAGES = "GET_MESSAGES"
+export const GET_MESSAGES_SUCCESS = "GET_MESSAGES_SUCCESS"
+export const GET_MESSAGES_FAILED = "GET_MESSAGES_FAILED"
 
 const url = domain + "/messages";
-
-const messagesGet = messageData => postIt => {
-    postIt({
-        type: GET_Messages
+// added GET_Messages file - Tamekia
+export const getMessages = () => dispatch => {
+    dispatch({
+        type: GET_MESSAGES
     })
-
-    return fetch(url + "/messages", {
-        // method: "GET",
+    return fetch(url, {
+        method: "GET",
         headers: jsonHeaders,
-        // body: JSON.stringify(messageData)
     })
     .then(handleJsonResponse)
     .then(result => {
-        return postIt({
-            type: GET_Messages_Success,
+        console.log(result)
+        return dispatch({
+            type: GET_MESSAGES_SUCCESS,
             payload: result
         })
     })
     .catch(err => {
         return Promise.reject(
-            postIt({type: GET_Messages_Failed, payload: err.message})
+            dispatch({type: GET_MESSAGES_FAILED, payload: err.message})
         )
     })
-}
-
-export const postToPage = messageData => postIt => {
-    return postIt(messagesGet(messageData)).then(() => postIt(push("/message")))
 }
 
