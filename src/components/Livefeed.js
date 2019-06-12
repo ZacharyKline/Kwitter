@@ -15,7 +15,7 @@ class Livefeed extends Component {
   render() {
     return (
       <React.Fragment>
-        <Grid columns="equal">
+        <Grid columns="equal" padded>
           <Grid.Column>
             <Segment style={{ backgroundColor: "#5D9DE600" }}>
               <Card>
