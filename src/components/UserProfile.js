@@ -9,9 +9,9 @@ import {
   Button,
   Grid
 } from "semantic-ui-react";
-import { connect } from "react-redux"
-import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions"
-
+import { connect } from "react-redux";
+import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions";
+import { Link } from "react-router-dom";
 
 //TODO: decide what will be displayed
 
@@ -45,126 +45,115 @@ class UserProfile extends Component {
     return (
       <React.Fragment>
         <Grid columns="equal">
-        <Grid.Column>
-            <Segment style={{backgroundColor: "#5D9DE600"}}>
-        <Card>
-          {/* userInfo */}
-          <Segment>
-            <Placeholder style={{ height: 150, width: 150}}>
-              {" "}
-              {this.props.img} image goes here <Placeholder.Image />{" "}
-            </Placeholder>
-          </Segment>
+          <Grid.Column>
+            <Segment style={{ backgroundColor: "#5D9DE600" }}>
+              <Card>
+                {/* userInfo */}
+                <Segment>
+                  <Placeholder style={{ height: 150, width: 150 }}>
+                    {" "}
+                    {this.props.img} image goes here <Placeholder.Image />{" "}
+                  </Placeholder>
+                </Segment>
 
-          <Card.Content>
-            <Card.Header>Username: {this.state.username}</Card.Header>
-            <Card.Meta>
-              <span className="userHandler">@ {this.state.username}</span>
+                <Card.Content>
+                  <Card.Header>Username: {this.state.username}</Card.Header>
+                  <Card.Meta>
+                    <span className="userHandler">@ {this.state.username}</span>
+                    <br />
+                    <br />
+                  </Card.Meta>
+                  <Card.Description>
+                    {" "}
+                    Bio: {this.state.bio} Some stuff about the stuff will go
+                    here.{" "}
+                  </Card.Description>
+                  <Card.Meta>
+                    <br />
+
+                    <span className="bday">
+                      {" "}
+                      Birthday: {this.state.birthdate}{" "}
+                    </span>
+                    <br />
+                    <span className="date">Joined in 2019</span>
+                  </Card.Meta>
+                </Card.Content>
+
+                <Header as="h4">
+                  <Icon.Group size="large">
+                    <Icon name="twitter" />
+                    <Icon corner name="add" />
+                  </Icon.Group>
+                  Add on Kwitter
+                  <br />
+                  <Link to="/editprofile">
+                  <Button as="div" labelPosition="right">
+                    <Button color="teal">
+                      {" "}
+                      <Icon name="edit" /> Edit Profile{" "}
+                    </Button>
+                  </Button>
+                  </Link>
+                </Header>
+              </Card>
+              <Button as="div" labelPosition="right">
+                <Button color="teal">
+                  {" "}
+                  <Icon name="heart" /> Likes{" "}
+                </Button>
+                <Label as="a" basic color="red" pointing="left">
+                  {" "}
+                  2,048{" "}
+                </Label>
+              </Button>
+              <Button as="div" labelPosition="right">
+                <Button color="teal">
+                  {" "}
+                  <Icon name="edit" /> Comments{" "}
+                </Button>
+                <Label as="a" basic color="blue" pointing="left">
+                  {" "}
+                  2,048{" "}
+                </Label>
+              </Button>
+
               <br />
               <br />
-            </Card.Meta>
-            <Card.Description>
-              {" "}
-              Bio: {this.state.bio} Some stuff about the stuff will go here.{" "}
-            </Card.Description>
-            <Card.Meta>
+
+              <Button as="div" labelPosition="right">
+                <Button onClick={this.props.handleDeleteUser} color="red">
+                  {" "}
+                  <Icon name="delete" /> Delete Profile{" "}
+                </Button>
+              </Button>
+            </Segment>
+          </Grid.Column>
+
+          <Grid.Column width={6}>
+            <Segment style={{ backgroundColor: "#405DBA" }}>
+              <Card.Description>
+                {" "}
+                Content: {this.state.content} Some stuff about the stuff will go
+                below.{" "}
+              </Card.Description>
+
+              <Placeholder fluid>
+                <Placeholder.Header image>
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                </Placeholder.Header>
+                <Placeholder.Paragraph>
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                  <Placeholder.Line />
+                </Placeholder.Paragraph>
+              </Placeholder>
+
               <br />
-
-              <span className="bday"> Birthday: {this.state.birthdate} </span>
-              <br />
-              <span className="date">Joined in 2019</span>
-            </Card.Meta>
-          </Card.Content>
-
-          <Header as="h4">
-            <Icon.Group size="large">
-              <Icon name="twitter" />
-              <Icon corner name="add" />
-            </Icon.Group>
-            Add on Kwitter
-            <br/>
-
-            
-            <Button as="div" labelPosition="right">
-          <Button color="teal">
-            {" "}
-            <Icon name="edit" /> Edit Profile{" "}
-          </Button>
-        </Button>
-
-
-          </Header>
-        </Card>
-        <Button as="div" labelPosition="right">
-          <Button color="teal">
-            {" "}
-            <Icon name="heart" /> Likes{" "}
-          </Button>
-          <Label as="a" basic color="red" pointing="left">
-            {" "}
-            2,048{" "}
-          </Label>
-        </Button>
-
-        <Button as="div" labelPosition="right">
-          <Button color="teal">
-            {" "}
-            <Icon name="edit" /> Comments{" "}
-          </Button>
-          <Label as="a" basic color="blue" pointing="left">
-            {" "}
-            2,048{" "}
-          </Label>
-        </Button>
-
-        <Button as="div" labelPosition="right">
-          <Button color="teal">
-            {" "}
-            <Icon name="retweet" /> Rekwits{" "}
-          </Button>
-          <Label as="a" basic color="green" pointing="left">
-            {" "}
-            2,048{" "}
-          </Label>
-        </Button>
-        <br />
-        <br />
-
-        <Button as="div" labelPosition="right">
-          <Button onClick={this.props.handleDeleteUser} color="red">
-            {" "}
-            <Icon name="delete" /> Delete Profile{" "}
-          </Button>
-        </Button>
-        </Segment>
-        </Grid.Column>
-
-        <Grid.Column width={6}>
-        <Segment style={{ backgroundColor: "#405DBA" }}>
-        <Card.Description>
-          {" "}
-          Content: {this.state.content} Some stuff about the stuff will go
-          below.{" "}
-        </Card.Description>
-
-        <Placeholder fluid>
-          <Placeholder.Header image>
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Header>
-          <Placeholder.Paragraph>
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Paragraph>
-        </Placeholder>
-
-        <br />
-        </Segment>
-        </Grid.Column>
-        <Grid.Column>
-
-        </Grid.Column>
+            </Segment>
+          </Grid.Column>
+          <Grid.Column />
         </Grid>
       </React.Fragment>
     );
