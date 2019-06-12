@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { setUserInfo } from "../actions";
+import HomeFeed from './Feed'
 import {
   Card,
   Image,
@@ -12,6 +15,10 @@ import MessagePlatform from "./MessagePlatform";
 //TODO: decide what will be displayed
 
 class Livefeed extends Component {
+  componentDidMount() {
+    this.props.setUserInfo(this.props.id);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -21,8 +28,8 @@ class Livefeed extends Component {
               <Card>
                 <Image />
                 <Card.Content>
-                  <Card.Header>DISPLAYNAME HERE</Card.Header>
-                  <Card.Description>Bio here?</Card.Description>
+                  <Card.Header>Display Name: {this.props.displayName}</Card.Header>
+                  <Card.Description>About Me: {this.props.about}</Card.Description>
                 </Card.Content>
               </Card>
             </Segment>
@@ -32,24 +39,9 @@ class Livefeed extends Component {
               <MessagePlatform />
               <br />
               <br />
-              <div className="exampleMessageTemplate">
-          <Message.Header />
-          <div />
-          <br />
-          <div className="messageText" style={{ backgroundColor: "lightgrey" }}>
-            This is the example message to show how it looks
-          </div>
-          <br />
-          <div className="buttonsInputsEtc">
-            <Button color="teal">
-              {" "}
-              <Icon name="heart" /> Like{" "}
-            </Button>
-          </div>
-        </div>
-        <br />
-        <br />
-               
+              <HomeFeed />
+              <br />
+              <br />
             </Segment>
           </Grid.Column>
           <Grid.Column />
@@ -59,4 +51,20 @@ class Livefeed extends Component {
   }
 }
 
-export default Livefeed;
+function mapStateToProps({ auth, editProfile }) {
+  return {
+    id: auth.login.id,
+    displayName: editProfile.displayName,
+    about: editProfile.about,
+    // password: editProfile.password,
+    lastUpdated: editProfile.lastUpdated
+  };
+}
+const mapDispatchToProps = {
+  setUserInfo
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Livefeed);
