@@ -25,6 +25,24 @@ export default class Feed extends Component {
               <Icon name="heart" /> Like{" "}
             </Button>
           </div>
+          {/* add feed semantic */}
+          <div className = "feed">
+          <Feed size='large'>
+          <Feed.Event>
+      <Feed.Label icon='pencil' />
+      <Feed.Content>
+        <Feed.Summary>
+          New post to page
+          <Feed.Date>13 days ago</Feed.Date>
+        </Feed.Summary>
+        <Feed.Extra text>{this.state.messages}</Feed.Extra>
+        <Feed.Meta>
+          <Feed.Like>11 Likes</Feed.Like>
+        </Feed.Meta>
+      </Feed.Content>
+    </Feed.Event>
+    </Feed>
+          </div>
         </div>
         <br />
         <br />
