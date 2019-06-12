@@ -69,5 +69,6 @@ const logout = () => (dispatch, getState) => {
 };
 
 export const logoutThenGoToLanding = () => dispatch => {
-  return dispatch(logout()).then(() => dispatch(push("/")));
+  dispatch(push("/"))
+  return dispatch(logout());
 };
