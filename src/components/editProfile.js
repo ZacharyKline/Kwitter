@@ -7,7 +7,7 @@ class EditProfile extends Component {
   componentDidMount() {
     this.props.setUserInfo(this.props.id);
   }
-
+ 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
