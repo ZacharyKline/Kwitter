@@ -31,23 +31,27 @@ class MessagePlatform extends Component {
           <Comment.Group>
             <Comment>
               <Comment.Content>
-                <Comment.Author as="a">User</Comment.Author>
+                {/* <Comment.Author as="a">User</Comment.Author>
                 <Comment.Metadata>
                   <div>2 days ago</div>
-                </Comment.Metadata>
+                </Comment.Metadata> */}
                 <Comment.Text>Status:</Comment.Text>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Group>
-                    <Form.Input
+                  <Form.Group className="sendMessageBox">
+                    <Form.Input 
+                      className="messageInputBox"
                       placeholder="What's on your mind?"
                       name="text"
                       onChange={this.handleChange}
                     />
+                    <br />
+                    <br />
                     <Form.Button
                       content="Submit"
                       labelPosition="left"
                       icon="edit"
                       value={text}
+                      color='teal'
                     />
                   </Form.Group>
                 </Form>

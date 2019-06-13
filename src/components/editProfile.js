@@ -70,6 +70,7 @@ class EditProfile extends Component {
                           type="submit"
                           value="submit"
                           onSubmit={this.handleEditProfile}
+                          color='teal'
                         >
                           Save Edits
                         </Button>
