@@ -66,6 +66,7 @@ class LoginForm extends Component {
                             className=""
                             type="submit"
                             disabled={isLoading}
+                            color='teal'
                           >
                             Login
                           </Button>
@@ -79,8 +80,9 @@ class LoginForm extends Component {
                     <div className="ui form">
                       <div className="field">
                         <Button
-                          className="registerButton"
+                          className=""
                           onClick={this.handleToggle}
+                          color='teal'
                         >
                           Register?
                         </Button>
@@ -129,6 +131,7 @@ class LoginForm extends Component {
                             className=""
                             type="submit"
                             disabled={isLoading}
+                            color='teal'
                           >
                             Login
                           </Button>
@@ -142,6 +145,7 @@ class LoginForm extends Component {
                     <Button
                       className="registerButton"
                       onClick={this.handleToggle}
+                      color='teal'
                     >
                       Register Here
                     </Button>
