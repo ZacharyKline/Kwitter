@@ -5,5 +5,6 @@ export * from "./users";
 export * from "./getMessages";
 export * from "./loggedUser";
 export * from "./editProfile"
+// export * from './getUsers'
 
 //TODO: create pages

@@ -5,9 +5,10 @@ const initialState = {
     displayName: '',
     about: '',
     password: '',
-    lastUpdated: Date.now()
+    lastUpdated: Date.now(),
+    pictureLocation: null
 }
-
+ 
 export default (state = initialState, action) => {
     switch(action.type) {
         case SET_CURRENT_INFO:
@@ -17,7 +18,8 @@ export default (state = initialState, action) => {
             displayName: action.payload.displayName,
             about: action.payload.about,
             password: action.payload.password,
-            lastUpdated: Date.now()
+            lastUpdated: Date.now(),
+            pictureLocation: action.payload.pictureLocation
         }
         case EDIT_PROFILE:
         return {
