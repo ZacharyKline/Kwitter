@@ -90,3 +90,17 @@ ui.vertical.divider:after, ui.vertical.divider:before{
   width: 90%;
   margin: auto;
 }
+
+.sendMessageBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50px;
+}
+
+.messageInputBox {
+  display: block;
+  width: 100%;
+  height: 30px;
+
+}
