@@ -9,7 +9,10 @@ export default class Message extends Component {
         <Card style={{ backgroundColor: "lightgrey" }}>
           <Card.Content>
             <Feed.Label>
-              <img src="https://png.pngtree.com/svg/20161212/f93e57629c.svg" style={{height: 40, width: 40}}/>
+              <img
+                src="https://png.pngtree.com/svg/20161212/f93e57629c.svg"
+                style={{ height: 40, width: 40 }}
+              />
             </Feed.Label>
             <Feed.Content>
               <Feed.Summary>
@@ -17,10 +20,10 @@ export default class Message extends Component {
                 <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
                 <br />
               </Feed.Summary>
-              <Feed.Meta style={{ backgroundColor: "white"}}>
+              <Feed.Meta style={{ backgroundColor: "white" }}>
                 {this.props.text}
-              <br />
-              <br />
+                <br />
+                <br />
               </Feed.Meta>
               <br />
               <Feed.Like>

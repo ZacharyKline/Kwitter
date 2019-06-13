@@ -4,7 +4,7 @@ import auth from "./auth";
 import likes from "./likes";
 import messages from "./messages";
 import users from "./users";
-import editProfile from "./editProfile"
+import editProfile from "./editProfile";
 
 export default history =>
   combineReducers({
@@ -12,6 +12,6 @@ export default history =>
     auth,
     likes,
     messages,
-    users,
+    // users,
     editProfile
   });
