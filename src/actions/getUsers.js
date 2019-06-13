@@ -11,7 +11,6 @@ export default getUsers => dispatch => {
   fetch(url)
     .then(handleJsonResponse)
     .then(data => {
-      console.log("ayyyy");
       dispatch({
         type: GET_USERS_SUCCESS,
         payload: data

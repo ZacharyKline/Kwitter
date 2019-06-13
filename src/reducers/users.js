@@ -13,7 +13,6 @@ export default (state = initialState, action) => {
     case GET_USERS:
       return { ...state };
     case GET_USERS_SUCCESS:
-      console.log(" reducer working");
       return {
         ...state,
         usersList: action.payload.users
