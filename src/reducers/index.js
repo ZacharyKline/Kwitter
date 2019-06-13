@@ -12,6 +12,6 @@ export default history =>
     auth,
     likes,
     messages,
-    // users,
+    users,
     editProfile
   });
