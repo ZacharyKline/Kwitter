@@ -4,7 +4,10 @@ import {GET_USERS, UPLOAD_PICTURE, UPLOAD_PICTURE_SUCCESS, UPLOAD_PICTURE_FAILUR
 const initialState = {
   users: [],
   uploadPictureError: null,
-  uploadPictureLoading: false
+  uploadPictureLoading: false,
+  getUserError: null,
+  user: null,
+  getUserLoading: false
 };
 
 export default (state = initialState, action) => {
