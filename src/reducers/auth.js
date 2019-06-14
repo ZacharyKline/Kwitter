@@ -15,7 +15,11 @@ const initialState = {
   loginError: null
 };
 
-export default (state = initialState, action) => {
+const getInitState = () => {
+  return JSON.parse(localStorage.getItem('auth')) || initialState
+}
+
+export default (state = getInitState(), action) => {
   switch (action.type) {
     case LOGIN:
       return {
@@ -43,3 +47,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+ 
