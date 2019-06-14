@@ -1,12 +1,12 @@
 import {domain, handleJsonResponse, jsonHeaders} from './constants'
 import {store} from '../index'
 
-const url = domain + '/users'
+const url = domain + '/users/'
 export const SET_CURRENT_INFO = 'SET_CURRENT_INFO'
 
 export const setUserInfo = id => dispatch => {
     const token = store.getState().auth.login.token
-    return fetch(url + '/'+ id, {
+    return fetch(url + id, {
         method: 'GET',
         headers: {
             ...jsonHeaders,
