@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
 import configureStore, { history } from "./configureStore";
 
-//TODO: Configure store
+//TODO: Configure store 
 
 export const store = configureStore({});
 
