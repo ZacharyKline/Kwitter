@@ -1,25 +1,27 @@
 import React, { Component } from "react";
-import Message from './Message'
+import Message from "./Message";
 import { Feed } from "semantic-ui-react";
 import { getMessages } from "../actions";
 import { connect } from "react-redux";
 
 class HomeFeed extends Component {
   componentDidMount() {
-    
-    this.props.getMessages()
+    this.props.getMessages();
+    this.messagePollingID = setInterval(this.props.getMessages, 5000);
   }
-
+  componentWillUnmount() {
+    clearInterval(this.messagePollingID);
+  }
   render() {
-    console.log(this.props.messages)
+    console.log(this.props.messages);
     const messages = this.props.messages.map(message => (
-      <Message 
+      <Message
         key={message.id}
         date={message.createdAt}
         text={message.text}
         likes={message.likes.length}
       />
-    ))
+    ));
     return (
       <React.Fragment>
         <Feed>
