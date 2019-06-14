@@ -1,19 +1,25 @@
-import {domain, handleJsonResponse} from '../actions/constants';
+import { domain, handleJsonResponse } from "../actions/constants";
 
-const GET_USERS = 'GET_USERS';
+export const GET_USERS = "GET_USERS";
+export const GET_USERS_SUCCESS = "GET_USERS_SUCCESS";
+export const GET_USERS_FAIL = "GET_USERS_FAIL";
 
-const getUsers = () => dispatch => {
-    return fetch(`${domain}/users`)
+const url = domain + "/users";
+
+export default getUsers => dispatch => {
+  // dispatch({ type: GET_USERS });
+  fetch(url)
     .then(handleJsonResponse)
     .then(data => {
-        return dispatch({
-            type: GET_USERS,
-            payload: data
-        })
+      return dispatch({
+        type: GET_USERS_SUCCESS,
+        payload: data
+      });
     })
     .catch(err => {
-        console.log(err)
-    })
-}
-
-export default (GET_USERS, getUsers)
+      console.log(err);
+      return Promise.reject(
+        dispatch({ type: GET_USERS_FAIL, payload: err.message })
+      );
+    });
+};

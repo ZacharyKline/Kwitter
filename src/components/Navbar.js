@@ -27,6 +27,9 @@ export default class Navbar extends Component {
           <Link to="/">
             <Menu.Item name="landing" active={activeItem === "landing"} />
           </Link>
+          <Link to="/users">
+            <Menu.Item name="users" active={activeItem === "users"} />
+          </Link>
           <Logout />
         </Menu>
       </List>

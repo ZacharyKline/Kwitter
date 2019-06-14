@@ -1,8 +1,16 @@
-import {GET_USERS, UPLOAD_PICTURE, UPLOAD_PICTURE_SUCCESS, UPLOAD_PICTURE_FAILURE} from '../actions'
-
+import {
+  GET_USERS,
+  GET_USERS_SUCCESS,
+  GET_USERS_FAIL
+} from "../actions/getUsers";
+import {
+  UPLOAD_PICTURE,
+  UPLOAD_PICTURE_SUCCESS,
+  UPLOAD_PICTURE_FAILURE
+} from "../actions";
 
 const initialState = {
-  users: [],
+  usersList: [],
   uploadPictureError: null,
   uploadPictureLoading: false
 };
@@ -10,26 +18,32 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_USERS:
+      return { ...state };
+    case GET_USERS_SUCCESS:
       return {
         ...state,
-        users: [...state.users, ...action.payload.users]
-      }
-      case UPLOAD_PICTURE:
+        usersList: action.payload.users
+      };
+    case GET_USERS_FAIL:
+      return {
+        usersList: [...state.users, ...action.payload.users]
+      };
+    case UPLOAD_PICTURE:
       return {
         ...state,
         uploadPictureLoading: true,
         uploadPictureError: null
-      }
-      case UPLOAD_PICTURE_SUCCESS:
+      };
+    case UPLOAD_PICTURE_SUCCESS:
       return {
         ...state,
         uploadPictureLoading: false
-      }
-      case UPLOAD_PICTURE_FAILURE:
+      };
+    case UPLOAD_PICTURE_FAILURE:
       return {
         ...state,
         uploadPictureError: action.payload
-      }
+      };
     default:
       return state;
   }
