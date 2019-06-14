@@ -11,6 +11,7 @@ export default class Message extends Component {
             <Feed.Label>
               <img
                 src="https://png.pngtree.com/svg/20161212/f93e57629c.svg"
+                alt="alt text"
                 style={{ height: 40, width: 40 }}
               />
             </Feed.Label>
@@ -27,7 +28,9 @@ export default class Message extends Component {
               </Feed.Meta>
               <br />
               <Feed.Like>
-                <Icon name="like" />
+                <button>
+                  <Icon name="like" />
+                </button>
                 {this.props.likes} Likes
                 <br />
               </Feed.Like>

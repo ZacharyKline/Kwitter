@@ -11,7 +11,10 @@ import {
 import { connect } from "react-redux";
 import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions";
 import { Link } from "react-router-dom";
-import {setUserInfo} from '../actions'
+import {setUserInfo, uploadPicture} from '../actions'
+import {domain} from '../actions/constants'
+import defaultPicture from '../img/avatar.jpeg'
+
 
 //TODO: decide what will be displayed
 
@@ -25,8 +28,15 @@ class UserProfile extends Component {
     this.props.setUserInfo(this.props.id);
   }
 
+  handleUploadPicture = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    this.props.uploadPicture(formData);
+  }
+
 
   render() {
+    const pictureSource = this.props.pictureLocation ? domain + this.props.pictureLocation : defaultPicture
     return (
       <React.Fragment>
         <Grid columns="equal">
@@ -35,11 +45,13 @@ class UserProfile extends Component {
               <Card>
                 {/* userInfo */}
                 <Segment>
-                  <Placeholder style={{ height: 150, width: 150 }}>
-                    {" "}
-                    {} image goes here <Placeholder.Image />{" "}
-                  </Placeholder>
+                  <img style={{ height: 150, width: 150 }} src={pictureSource} alt='Default user profile'>
+                  </img>
                 </Segment>
+                <form onSubmit={this.handleUploadPicture}>
+                  <input type="file" name="picture" />
+                  <Button type='submit'>Upload a new picture</Button>
+                </form>
 
                 <Card.Content>
                   <Card.Header>Username: {}</Card.Header>
@@ -115,10 +127,15 @@ function mapStateToProps({ auth, editProfile }) {
     id: auth.login.id,
     displayName: editProfile.displayName,
     about: editProfile.about,
-    lastUpdated: editProfile.lastUpdated
+    lastUpdated: editProfile.lastUpdated,
+    pictureLocation: editProfile.pictureLocation
   };
 }
+const mapDispatchToProps = {
+  uploadPicture,
+  handleDeleteUser, 
+  setUserInfo
+}
 export default connect(
-  mapStateToProps,
-  { handleDeleteUser, setUserInfo }
+  mapStateToProps, mapDispatchToProps
 )(UserProfile);

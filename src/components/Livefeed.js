@@ -7,9 +7,6 @@ import {
   Image,
   Grid,
   Segment,
-  Message,
-  Button,
-  Icon
 } from "semantic-ui-react";
 import MessagePlatform from "./MessagePlatform";
 //TODO: decide what will be displayed

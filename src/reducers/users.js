@@ -3,9 +3,16 @@ import {
   GET_USERS_SUCCESS,
   GET_USERS_FAIL
 } from "../actions/getUsers";
+import {
+  UPLOAD_PICTURE,
+  UPLOAD_PICTURE_SUCCESS,
+  UPLOAD_PICTURE_FAILURE
+} from "../actions";
 
 const initialState = {
-  usersList: []
+  usersList: [],
+  uploadPictureError: null,
+  uploadPictureLoading: false
 };
 
 export default (state = initialState, action) => {
@@ -18,7 +25,25 @@ export default (state = initialState, action) => {
         usersList: action.payload.users
       };
     case GET_USERS_FAIL:
-      return { ...state };
+      return {
+        usersList: [...state.users, ...action.payload.users]
+      };
+    case UPLOAD_PICTURE:
+      return {
+        ...state,
+        uploadPictureLoading: true,
+        uploadPictureError: null
+      };
+    case UPLOAD_PICTURE_SUCCESS:
+      return {
+        ...state,
+        uploadPictureLoading: false
+      };
+    case UPLOAD_PICTURE_FAILURE:
+      return {
+        ...state,
+        uploadPictureError: action.payload
+      };
     default:
       return state;
   }
