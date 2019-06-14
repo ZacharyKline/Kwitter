@@ -6,6 +6,9 @@ export const GET_MESSAGES_FAILED = "GET_MESSAGES_FAILED"
 export const GET_USER_MESSAGES = "GET_USER_MESSAGES"
 export const GET_USER_MESSAGES_SUCCESS = "GET_USER_MESSAGES_SUCCESS"
 export const GET_USER_MESSAGES_FAILED = "GET_USER_MESSAGES_FAILED"
+export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
+
+
 
 const url = domain + "/messages";
 // added GET_Messages file - Tamekia
@@ -73,6 +76,18 @@ export const getUserMessages = (limit = 100, offset = 0, userId) => dispatch => 
         );
       });
   };
+
+  export const getMessageById = (messageID) => dispatch => {
+    return fetch(`${domain}/messages/${messageID}`)
+    .then(handleJsonResponse)
+    .then(data => {
+        dispatch({
+            type: UPDATE_MESSAGE,
+            payload: data.message
+        })
+    })
+}
+
   
 export const getLoggedInUserMessages = () => (dispatch, getState) => {
     const id = getState().auth.login.id;

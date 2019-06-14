@@ -11,6 +11,7 @@ import {
 import { domain } from "../actions/constants";
 import defaultPicture from "../img/avatar.jpeg";
 import moment from 'moment'
+import { toggleLike } from "../actions/"
 
 //TODO: decide what will be displayed
 
@@ -119,7 +120,11 @@ class UserProfile extends Component {
               </Feed.Meta>
               <br />
               <Feed.Like>
-                <button>
+                <button 
+                onClick={event => {
+                  event.preventDefault()
+                  this.props.toggleLike(message.id, true)
+                }} href='#'>
                 <Icon name="like" />
                 </button>
                 {message.likes.length} Likes
@@ -156,7 +161,8 @@ const mapDispatchToProps = {
   uploadPicture,
   handleDeleteUser,
   setUserInfo,
-  getLoggedInUserMessages
+  getLoggedInUserMessages,
+  toggleLike
 };
 export default connect(
   mapStateToProps,

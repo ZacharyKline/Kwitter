@@ -2,7 +2,7 @@ import {
   MESSAGE_POST,
   MESSAGE_SUCCESS,
   MESSAGE_FAIL,
-  GET_MESSAGES_SUCCESS
+  GET_MESSAGES_SUCCESS,
 } from "../actions";
 
 const initialState = {
@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
       };
     case MESSAGE_FAIL:
       return {
-        messages: [...state],
+        messages: [state],
         message_success: false,
         message_fail: true
       };

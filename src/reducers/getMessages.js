@@ -1,7 +1,5 @@
 import {
-    GET_MESSAGES,
     GET_MESSAGES_SUCCESS,
-    GET_MESSAGES_FAILED
 }from "../actions"
 import {GET_USER_MESSAGES, GET_USER_MESSAGES_SUCCESS, GET_USER_MESSAGES_FAILED} from '../actions'
 
@@ -15,10 +13,10 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case GET_Messages_Success:
+        case GET_MESSAGES_SUCCESS:
             return{
                 ...state,
-                messages:[...state.messages, ...action.payload.messages]
+                messages:[...state.messages, action.payload.messages]
             }
         case GET_USER_MESSAGES:
         return {
@@ -38,7 +36,6 @@ export default (state = initialState, action) => {
           getUserMessagesError: action.payload,
           getUserMessagesLoading: false 
         } 
->>>>>>> src/reducers/getMessages.js
         default:
             return state;
     }

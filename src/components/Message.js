@@ -32,7 +32,7 @@ class Message extends Component {
               </Feed.Meta>
               <br />
               <Feed.Like>
-                <button>
+                <button >
                   <Icon name="like" />
                 </button>
                 {this.props.likes} Likes
