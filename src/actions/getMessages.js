@@ -12,6 +12,8 @@ export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
 
 const url = domain + "/messages";
 // added GET_Messages file - Tamekia
+// made changes to file (map through user info) to add functionality to show correct user not just the user that is signed in - Tamekia 
+
 export const getMessages = () => dispatch => {
     dispatch({
         type: GET_MESSAGES
@@ -22,11 +24,26 @@ export const getMessages = () => dispatch => {
     })
     .then(handleJsonResponse)
     .then(result => {
-        console.log(result)
-        return dispatch({
-            type: GET_MESSAGES_SUCCESS,
-            payload: result
+        const messagePromises = result.messages.map(message => {
+            const userUrl = domain + "/users/" + message.userId
+            return fetch(userUrl)
+                .then (handleJsonResponse)
+                .then (result => {
+                    return {
+                        ...message,
+                        ...result.user
+                    }
+                })
         })
+        Promise.all(messagePromises)
+            .then (messages => {
+                return dispatch({
+                    type: GET_MESSAGES_SUCCESS,
+                    payload: messages
+                })
+            })
+
+        
     })
     .catch(err => {
         return Promise.reject(

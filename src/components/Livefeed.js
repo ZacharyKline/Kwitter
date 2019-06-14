@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setUserInfo } from "../actions";
+import { setUserInfo ,getMessages} from "../actions";
 import HomeFeed from './Feed'
 import {
   Card,
@@ -9,11 +9,15 @@ import {
   Segment,
 } from "semantic-ui-react";
 import MessagePlatform from "./MessagePlatform";
+import { statement } from "@babel/template";
+
 //TODO: decide what will be displayed
 
 class Livefeed extends Component {
   componentDidMount() {
     this.props.setUserInfo(this.props.id);
+    
+    
   }
 
   render() {
@@ -48,15 +52,17 @@ class Livefeed extends Component {
   }
 }
 
-function mapStateToProps({ auth, editProfile }) {
+function mapStateToProps({ auth, editProfile ,messages}) {
   return {
     id: auth.login.id,
     displayName: editProfile.displayName,
     about: editProfile.about,
     // password: editProfile.password,
-    lastUpdated: editProfile.lastUpdated
+    lastUpdated: editProfile.lastUpdated,
+    
   };
 }
+
 const mapDispatchToProps = {
   setUserInfo
 }
