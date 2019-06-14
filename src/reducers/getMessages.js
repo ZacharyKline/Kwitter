@@ -28,6 +28,7 @@ export default (state = initialState, action) => {
           getUserMessagesError: action.payload,
           getUserMessagesLoading: false 
         } 
+
         default:
             return state;
     }

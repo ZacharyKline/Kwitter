@@ -2,7 +2,7 @@ import {
   MESSAGE_POST,
   MESSAGE_SUCCESS,
   MESSAGE_FAIL,
-  GET_MESSAGES_SUCCESS
+  GET_MESSAGES_SUCCESS,
 } from "../actions";
 
 const initialState = {
