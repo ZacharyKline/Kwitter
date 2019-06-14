@@ -6,7 +6,8 @@ const initialState = {
     about: '',
     password: '',
     lastUpdated: Date.now(),
-    pictureLocation: null
+    pictureLocation: null,
+    username: ''
 }
  
 export default (state = initialState, action) => {
@@ -19,7 +20,8 @@ export default (state = initialState, action) => {
             about: action.payload.about,
             password: action.payload.password,
             lastUpdated: Date.now(),
-            pictureLocation: action.payload.pictureLocation
+            pictureLocation: action.payload.pictureLocation,
+            username: action.payload.username
         }
         case EDIT_PROFILE:
         return {
