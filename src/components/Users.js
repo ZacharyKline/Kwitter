@@ -11,20 +11,21 @@ class UsersList extends Component {
   render() {
     return (
       <React.Fragment>
-        <Card>
-          <Card.Content>
-            User:<div className="header">{this.props.username}</div>
-            Name:<div className="header">{this.props.displayName}</div>
-            About:<div className="header">{this.props.about}</div>
-          </Card.Content>
-        </Card>
+        {this.props.usersList.map(usersList => {
+          return (
+            <Card key={usersList.id}>
+              <h3>{usersList.displayName}</h3>
+              <p>{usersList.username}</p>
+            </Card>
+          );
+        })}
       </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  usersList: state.usersList
+  usersList: state.users.usersList
 });
 
 const mapDispatchToProps = {
