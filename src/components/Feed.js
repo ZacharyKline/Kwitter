@@ -14,12 +14,12 @@ class HomeFeed extends Component {
   }
   render() {
     console.log(this.props.messages)
-    const messages = this.props.messages.map((message, index) => (
+    const messages = this.props.message.map((message, index) => (
       <Message 
         key={index}
         date={message.createdAt}
         text={message.text}
-        likes={message.likes.length}
+        // likes={message.likes.length}
         userName={message.username}
         displayName={message.displayName}
       />
@@ -36,9 +36,16 @@ class HomeFeed extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  message: state.messages.messages
+})
+
+const mapDispatchToProps = {
+  getMessages
+}
+
+
 export default connect(
-  ({ messages }) => ({
-    messages: messages.messages
-  }),
-  { getMessages }
-)(HomeFeed);
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeFeed)

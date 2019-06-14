@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
       };
     case MESSAGE_FAIL:
       return {
-        messages: [...state],
+        messages: [state],
         message_success: false,
         message_fail: true
       };
