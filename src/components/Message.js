@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import { Icon, Feed, Card } from "semantic-ui-react";
 import moment from "moment";
+import { connect } from "react-redux";
+import { setUserInfo } from "../actions";
 
-export default class Message extends Component {
+
+class Message extends Component {
+  componentDidMount() {
+    this.props.setUserInfo(this.props.displayName);
+  }
+
+
   render() {
     return (
       <Feed.Event>
@@ -13,7 +21,7 @@ export default class Message extends Component {
             </Feed.Label>
             <Feed.Content>
               <Feed.Summary>
-                <Feed.User>Default DisplayName</Feed.User>
+                <Feed.User>{this.props.displayName}</Feed.User>
                 <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
                 <br />
               </Feed.Summary>
@@ -37,3 +45,19 @@ export default class Message extends Component {
     );
   }
 }
+
+function mapStateToProps({ auth, editProfile }) {
+  return {
+    id: auth.login.id,
+    displayName: editProfile.displayName,
+    about: editProfile.about,
+    // password: editProfile.password,
+    lastUpdated: editProfile.lastUpdated
+  };
+}
+const mapDispatchToProps = {
+  setUserInfo
+}
+ export default connect( mapStateToProps,
+  mapDispatchToProps)(Message);
+
