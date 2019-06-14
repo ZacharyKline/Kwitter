@@ -92,6 +92,7 @@ function mapStateToProps({ auth, editProfile }) {
     id: auth.login.id,
     displayName: editProfile.displayName,
     about: editProfile.about,
+    username: editProfile.username,
     // password: editProfile.password,
     lastUpdated: editProfile.lastUpdated
   };
