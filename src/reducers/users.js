@@ -12,7 +12,10 @@ import {
 const initialState = {
   usersList: [],
   uploadPictureError: null,
-  uploadPictureLoading: false
+  uploadPictureLoading: false,
+  getUserError: null,
+  user: null,
+  getUserLoading: false
 };
 
 export default (state = initialState, action) => {

@@ -3,17 +3,23 @@ import {
   Card,
   Icon,
   Header,
-  Placeholder,
   Segment,
   Button,
-  Grid
+  Grid,
+  Feed
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions";
 import { Link } from "react-router-dom";
-import { setUserInfo, uploadPicture } from "../actions";
+import {
+  setUserInfo,
+  uploadPicture,
+  getLoggedInUserMessages
+} from "../actions";
 import { domain } from "../actions/constants";
 import defaultPicture from "../img/avatar.jpeg";
+import moment from "moment";
+import { toggleLike } from "../actions/";
 
 //TODO: decide what will be displayed
 
@@ -25,6 +31,7 @@ import defaultPicture from "../img/avatar.jpeg";
 class UserProfile extends Component {
   componentDidMount() {
     this.props.setUserInfo(this.props.id);
+    this.props.getLoggedInUserMessages();
   }
 
   handleUploadPicture = event => {
@@ -42,7 +49,7 @@ class UserProfile extends Component {
         <Grid columns="equal">
           <Grid.Column>
             <Segment style={{ backgroundColor: "#5D9DE600" }}>
-              <Card>
+              <Card style={{ backgroundColor: "#5D9DE6" }}>
                 {/* userInfo */}
                 <Segment>
                   <img
@@ -51,67 +58,96 @@ class UserProfile extends Component {
                     alt="Default user profile"
                   />
                 </Segment>
+                <div>Change your picture:</div>
                 <form onSubmit={this.handleUploadPicture}>
                   <input type="file" name="picture" />
-                  <Button type="submit">Upload a new picture</Button>
+                  <br />
+                  <br />
+                  <Button type="submit" color="teal">
+                    Upload a new picture
+                  </Button>
                 </form>
 
                 <Card.Content>
-                  <Card.Header>Username: {}</Card.Header>
+                  <Card.Header>Username:</Card.Header>
+                  <Card.Meta>{this.props.username}</Card.Meta>
+                  <br />
+                  <Card.Header>Display Name:</Card.Header>
                   <Card.Meta>
                     <span className="userHandler">
-                      {" "}
                       {this.props.displayName}
                     </span>
                     <br />
                     <br />
                   </Card.Meta>
-                  <Card.Description> Bio: {this.props.about}</Card.Description>
+                  <Card.Header>
+                    About:
+                    <Card.Meta>{this.props.about}</Card.Meta>
+                  </Card.Header>
                 </Card.Content>
 
                 <Header as="h4">
                   <Link to="/editprofile">
-                    <Button as="div" labelPosition="right">
-                      <Button color="teal">
-                        {" "}
-                        <Icon name="edit" /> Edit Profile{" "}
-                      </Button>
+                    <Button color="teal">
+                      <Icon name="edit" /> Edit Profile{" "}
                     </Button>
                   </Link>
+
+                  <br />
+                  <br />
+
+                  <Button onClick={this.props.handleDeleteUser} color="red">
+                    <Icon name="delete" /> Delete Profile{" "}
+                  </Button>
                 </Header>
               </Card>
-
-              <br />
-              <br />
-
-              <Button as="div" labelPosition="right">
-                <Button onClick={this.props.handleDeleteUser} color="red">
-                  {" "}
-                  <Icon name="delete" /> Delete Profile{" "}
-                </Button>
-              </Button>
             </Segment>
           </Grid.Column>
 
           <Grid.Column width={6}>
             <Segment style={{ backgroundColor: "#405DBA" }}>
               <Card.Description>
-                {" "}
-                Content: {} Some stuff about the stuff will go below.{" "}
+                <h1>Your Message History</h1>
               </Card.Description>
 
-              <Placeholder fluid>
-                <Placeholder.Header image>
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                </Placeholder.Header>
-                <Placeholder.Paragraph>
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                  <Placeholder.Line />
-                </Placeholder.Paragraph>
-              </Placeholder>
-
+              {this.props.messages.map(message => {
+                return (
+                  <React.Fragment>
+                    <Card style={{ backgroundColor: "lightgrey" }}>
+                      <Card.Content>
+                        <Feed.Content>
+                          <Feed.Summary>
+                            <Feed.User>{this.props.displayName}</Feed.User>
+                            <br />
+                            <Feed.Date>
+                              {moment(message.createdAt).fromNow()}
+                            </Feed.Date>
+                          </Feed.Summary>
+                          <Feed.Meta style={{ backgroundColor: "white" }}>
+                            {message.text}
+                            <br />
+                            <br />
+                          </Feed.Meta>
+                          <br />
+                          <Feed.Like>
+                            <button
+                              onClick={event => {
+                                event.preventDefault();
+                                this.props.toggleLike(message.id, true);
+                              }}
+                              href="#"
+                            >
+                              <Icon name="like" />
+                            </button>
+                            {message.likes.length} Likes
+                            <br />
+                          </Feed.Like>
+                        </Feed.Content>
+                      </Card.Content>
+                    </Card>
+                  </React.Fragment>
+                );
+              })}
               <br />
             </Segment>
           </Grid.Column>
@@ -122,19 +158,23 @@ class UserProfile extends Component {
   }
 }
 
-function mapStateToProps({ auth, editProfile }) {
+function mapStateToProps({ auth, editProfile, getMessages }) {
   return {
     id: auth.login.id,
+    username: editProfile.username,
     displayName: editProfile.displayName,
     about: editProfile.about,
     lastUpdated: editProfile.lastUpdated,
-    pictureLocation: editProfile.pictureLocation
+    pictureLocation: editProfile.pictureLocation,
+    messages: getMessages.userMessages || []
   };
 }
 const mapDispatchToProps = {
   uploadPicture,
   handleDeleteUser,
-  setUserInfo
+  setUserInfo,
+  getLoggedInUserMessages,
+  toggleLike
 };
 export default connect(
   mapStateToProps,

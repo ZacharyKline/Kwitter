@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import { Icon, Feed, Card } from "semantic-ui-react";
 import moment from "moment";
 
-export default class Message extends Component {
+
+class Message extends Component {
+
+// made changes to add user who has posted a message
+
   render() {
     return (
       <Feed.Event>
@@ -17,7 +21,7 @@ export default class Message extends Component {
             </Feed.Label>
             <Feed.Content>
               <Feed.Summary>
-                <Feed.User>Default DisplayName</Feed.User>
+                <Feed.User> {this.props.displayName}</Feed.User>
                 <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
                 <br />
               </Feed.Summary>
@@ -28,7 +32,7 @@ export default class Message extends Component {
               </Feed.Meta>
               <br />
               <Feed.Like>
-                <button>
+                <button >
                   <Icon name="like" />
                 </button>
                 {this.props.likes} Likes
@@ -43,3 +47,6 @@ export default class Message extends Component {
     );
   }
 }
+
+ export default Message
+

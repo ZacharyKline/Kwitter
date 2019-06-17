@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setUserInfo } from "../actions";
-import HomeFeed from './Feed'
-import {
-  Card,
-  Image,
-  Grid,
-  Segment,
-} from "semantic-ui-react";
+import HomeFeed from "./Feed";
+import { Card, Image, Grid, Segment } from "semantic-ui-react";
 import MessagePlatform from "./MessagePlatform";
+
 //TODO: decide what will be displayed
 
 class Livefeed extends Component {
@@ -25,8 +21,12 @@ class Livefeed extends Component {
               <Card>
                 <Image />
                 <Card.Content>
-                  <Card.Header>Display Name: {this.props.displayName}</Card.Header>
-                  <Card.Description>About Me: {this.props.about}</Card.Description>
+                  <Card.Header>
+                    Display Name: {this.props.displayName}
+                  </Card.Header>
+                  <Card.Description>
+                    About Me: {this.props.about}
+                  </Card.Description>
                 </Card.Content>
               </Card>
             </Segment>
@@ -48,7 +48,7 @@ class Livefeed extends Component {
   }
 }
 
-function mapStateToProps({ auth, editProfile }) {
+function mapStateToProps({ auth, editProfile, messages }) {
   return {
     id: auth.login.id,
     displayName: editProfile.displayName,
@@ -57,9 +57,10 @@ function mapStateToProps({ auth, editProfile }) {
     lastUpdated: editProfile.lastUpdated
   };
 }
+
 const mapDispatchToProps = {
   setUserInfo
-}
+};
 
 export default connect(
   mapStateToProps,
