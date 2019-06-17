@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Menu, List } from "semantic-ui-react";
 import Logout from "./Logout";
 import { Link } from "react-router-dom";
+import { LOGIN_SUCCESS, LOGOUT } from "../reducers/auth";
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -14,7 +15,6 @@ export default class Navbar extends Component {
 
   render() {
     const { activeItem } = this.state;
-
     return (
       <List>
         <Menu style={{ backgroundColor: "#5D9DE6" }}>

@@ -11,10 +11,9 @@ import {
 import { connect } from "react-redux";
 import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions";
 import { Link } from "react-router-dom";
-import {setUserInfo, uploadPicture} from '../actions'
-import {domain} from '../actions/constants'
-import defaultPicture from '../img/avatar.jpeg'
-
+import { setUserInfo, uploadPicture } from "../actions";
+import { domain } from "../actions/constants";
+import defaultPicture from "../img/avatar.jpeg";
 
 //TODO: decide what will be displayed
 
@@ -28,15 +27,16 @@ class UserProfile extends Component {
     this.props.setUserInfo(this.props.id);
   }
 
-  handleUploadPicture = (event) => {
+  handleUploadPicture = event => {
     event.preventDefault();
     const formData = new FormData(event.target);
     this.props.uploadPicture(formData);
-  }
-
+  };
 
   render() {
-    const pictureSource = this.props.pictureLocation ? domain + this.props.pictureLocation : defaultPicture
+    const pictureSource = this.props.pictureLocation
+      ? domain + this.props.pictureLocation
+      : defaultPicture;
     return (
       <React.Fragment>
         <Grid columns="equal">
@@ -45,40 +45,41 @@ class UserProfile extends Component {
               <Card>
                 {/* userInfo */}
                 <Segment>
-                  <img style={{ height: 150, width: 150 }} src={pictureSource} alt='Default user profile'>
-                  </img>
+                  <img
+                    style={{ height: 150, width: 150 }}
+                    src={pictureSource}
+                    alt="Default user profile"
+                  />
                 </Segment>
                 <form onSubmit={this.handleUploadPicture}>
                   <input type="file" name="picture" />
-                  <Button type='submit'>Upload a new picture</Button>
+                  <Button type="submit">Upload a new picture</Button>
                 </form>
 
                 <Card.Content>
                   <Card.Header>Username: {}</Card.Header>
                   <Card.Meta>
-                    <span className="userHandler"> {this.props.displayName}</span>
+                    <span className="userHandler">
+                      {" "}
+                      {this.props.displayName}
+                    </span>
                     <br />
                     <br />
                   </Card.Meta>
-                  <Card.Description>
-                    {" "}
-                    Bio: {this.props.about}
-                  </Card.Description>
+                  <Card.Description> Bio: {this.props.about}</Card.Description>
                 </Card.Content>
 
                 <Header as="h4">
-
                   <Link to="/editprofile">
-                  <Button as="div" labelPosition="right">
-                    <Button color="teal">
-                      {" "}
-                      <Icon name="edit" /> Edit Profile{" "}
+                    <Button as="div" labelPosition="right">
+                      <Button color="teal">
+                        {" "}
+                        <Icon name="edit" /> Edit Profile{" "}
+                      </Button>
                     </Button>
-                  </Button>
                   </Link>
                 </Header>
               </Card>
-
 
               <br />
               <br />
@@ -96,8 +97,7 @@ class UserProfile extends Component {
             <Segment style={{ backgroundColor: "#405DBA" }}>
               <Card.Description>
                 {" "}
-                Content: {} Some stuff about the stuff will go
-                below.{" "}
+                Content: {} Some stuff about the stuff will go below.{" "}
               </Card.Description>
 
               <Placeholder fluid>
@@ -133,9 +133,10 @@ function mapStateToProps({ auth, editProfile }) {
 }
 const mapDispatchToProps = {
   uploadPicture,
-  handleDeleteUser, 
+  handleDeleteUser,
   setUserInfo
-}
+};
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(UserProfile);
