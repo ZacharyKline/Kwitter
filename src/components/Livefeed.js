@@ -4,6 +4,7 @@ import { setUserInfo } from "../actions";
 import HomeFeed from "./Feed";
 import { Card, Image, Grid, Segment } from "semantic-ui-react";
 import MessagePlatform from "./MessagePlatform";
+import UsersList from "./Users";
 import {domain} from '../actions/constants'
 
 //TODO: decide what will be displayed
