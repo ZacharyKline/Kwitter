@@ -1,4 +1,8 @@
 import {domain, jsonHeaders, handleJsonResponse} from "./constants";
+// import { store } from "../index";
+// import { push } from "connected-react-router";
+
+
 
 export const GET_MESSAGES = "GET_MESSAGES"
 export const GET_MESSAGES_SUCCESS = "GET_MESSAGES_SUCCESS"
@@ -7,7 +11,7 @@ export const GET_USER_MESSAGES = "GET_USER_MESSAGES"
 export const GET_USER_MESSAGES_SUCCESS = "GET_USER_MESSAGES_SUCCESS"
 export const GET_USER_MESSAGES_FAILED = "GET_USER_MESSAGES_FAILED"
 export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
-
+export const DELETE_MESSAGE = 'DELETE_MESSAGE'
 
 
 const url = domain + "/messages";
@@ -87,7 +91,27 @@ export const getUserMessages = (limit = 100, offset = 0, userId) => dispatch => 
         })
     })
 }
-
+export const handleDeleteMessage = (messageID) => (dispatch,getState) => {
+    const token = getState().auth.login.token;
+  
+    return fetch(url + "/" + messageID, {
+      method: "DELETE",
+      headers: {
+        ...jsonHeaders,
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(handleJsonResponse)
+      .then(result => {
+          dispatch({
+              type: DELETE_MESSAGE,
+              payload: result
+          })
+        console.log(result);
+      });
+    //   return dispatch(handleDeleteMessage()).then(() => dispatch(push("/")));
+    };  
+  
   
 export const getLoggedInUserMessages = () => (dispatch, getState) => {
     const id = getState().auth.login.id;
