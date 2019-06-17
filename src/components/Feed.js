@@ -13,7 +13,6 @@ class HomeFeed extends Component {
     clearInterval(this.messagePollingID);
   }
   render() {
-    console.log(this.props.messages);
     const messages = this.props.message.map((message, index) => (
       <Message
         key={index}
@@ -26,7 +25,7 @@ class HomeFeed extends Component {
     ));
     return (
       <React.Fragment>
-        <Feed>{messages}</Feed>
+        <Feed style={{ flex: 1, alignItems: "stretch" }}>{messages}</Feed>
         <br />
         <br />
       </React.Fragment>

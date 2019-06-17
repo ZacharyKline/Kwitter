@@ -113,7 +113,9 @@ class UserProfile extends Component {
               {this.props.messages.map(message => {
                 return (
                   <React.Fragment>
-                    <Card style={{ backgroundColor: "lightgrey" }}>
+                    <Card
+                      style={{ backgroundColor: "lightgrey", width: "100%" }}
+                    >
                       <Card.Content>
                         <Feed.Content>
                           <Feed.Summary>
