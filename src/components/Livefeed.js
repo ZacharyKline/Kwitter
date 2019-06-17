@@ -32,19 +32,23 @@ class Livefeed extends Component {
               </Card>
             </Segment>
           </Grid.Column>
-          <Grid.Column width={6}>
+          <Grid.Column width={7}>
             <Segment style={{ backgroundColor: "#405DBA" }}>
               <MessagePlatform />
               <br />
               <br />
-              <HomeFeed width={6} />
+            </Segment>
+            <Segment>
+              <HomeFeed />
               <br />
               <br />
             </Segment>
           </Grid.Column>
           <Grid.Column />
           <Grid.Column>
-            <UsersList />
+            <Segment>
+              <UsersList />
+            </Segment>
           </Grid.Column>
         </Grid>
       </React.Fragment>

@@ -16,22 +16,26 @@ class UsersList extends Component {
       : defaultPicture;
     return (
       <React.Fragment>
-        {this.props.usersList.map(usersList => {
-          return (
-            <Card key={usersList.id}>
-              <img
-                style={{
-                  height: 75,
-                  width: 75,
-                  margin: "auto"
-                }}
-                src={pictureSource}
-                alt="Default user profile"
-              />
-              <h3>Display Name: {usersList.displayName}</h3>
-              <p>Username: {usersList.username}</p>
-            </Card>
-          );
+        {this.props.usersList.map(user => {
+          if (user.id % 30 === 0) {
+            return (
+              <Card key={user.id}>
+                <img
+                  style={{
+                    height: 75,
+                    width: 75,
+                    margin: "auto"
+                  }}
+                  src={pictureSource}
+                  alt="Default user profile"
+                />
+                <h3>Display Name: {user.displayName}</h3>
+                <p>Username: {user.username}</p>
+              </Card>
+            );
+          } else {
+            return null;
+          }
         })}
       </React.Fragment>
     );
