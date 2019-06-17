@@ -4,6 +4,7 @@ import { setUserInfo } from "../actions";
 import HomeFeed from "./Feed";
 import { Card, Image, Grid, Segment } from "semantic-ui-react";
 import MessagePlatform from "./MessagePlatform";
+import UsersList from "./Users";
 
 //TODO: decide what will be displayed
 
@@ -36,12 +37,15 @@ class Livefeed extends Component {
               <MessagePlatform />
               <br />
               <br />
-              <HomeFeed />
+              <HomeFeed width={6} />
               <br />
               <br />
             </Segment>
           </Grid.Column>
           <Grid.Column />
+          <Grid.Column>
+            <UsersList />
+          </Grid.Column>
         </Grid>
       </React.Fragment>
     );
