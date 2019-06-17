@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Card, Icon, Header, Segment, Button, Grid, Feed } from "semantic-ui-react";
+import {
+  Card,
+  Icon,
+  Header,
+  Segment,
+  Button,
+  Grid,
+  Feed
+} from "semantic-ui-react";
 import { connect } from "react-redux";
 import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions";
 import { Link } from "react-router-dom";
@@ -10,8 +18,8 @@ import {
 } from "../actions";
 import { domain } from "../actions/constants";
 import defaultPicture from "../img/avatar.jpeg";
-import moment from 'moment'
-import { toggleLike } from "../actions/"
+import moment from "moment";
+import { toggleLike } from "../actions/";
 
 //TODO: decide what will be displayed
 
@@ -107,30 +115,34 @@ class UserProfile extends Component {
                   <React.Fragment>
                     <Card style={{ backgroundColor: "lightgrey" }}>
                       <Card.Content>
-                      <Feed.Content>
-              <Feed.Summary>
-                <Feed.User>{this.props.displayName}</Feed.User>
-                <br />
-                <Feed.Date>{moment(message.createdAt).fromNow()}</Feed.Date>
-              </Feed.Summary>
-              <Feed.Meta style={{ backgroundColor: "white"}}>
-                {message.text}
-              <br />
-              <br />
-              </Feed.Meta>
-              <br />
-              <Feed.Like>
-                <button 
-                onClick={event => {
-                  event.preventDefault()
-                  this.props.toggleLike(message.id, true)
-                }} href='#'>
-                <Icon name="like" />
-                </button>
-                {message.likes.length} Likes
-                <br />
-              </Feed.Like>
-            </Feed.Content>
+                        <Feed.Content>
+                          <Feed.Summary>
+                            <Feed.User>{this.props.displayName}</Feed.User>
+                            <br />
+                            <Feed.Date>
+                              {moment(message.createdAt).fromNow()}
+                            </Feed.Date>
+                          </Feed.Summary>
+                          <Feed.Meta style={{ backgroundColor: "white" }}>
+                            {message.text}
+                            <br />
+                            <br />
+                          </Feed.Meta>
+                          <br />
+                          <Feed.Like>
+                            <button
+                              onClick={event => {
+                                event.preventDefault();
+                                this.props.toggleLike(message.id, true);
+                              }}
+                              href="#"
+                            >
+                              <Icon name="like" />
+                            </button>
+                            {message.likes.length} Likes
+                            <br />
+                          </Feed.Like>
+                        </Feed.Content>
                       </Card.Content>
                     </Card>
                   </React.Fragment>

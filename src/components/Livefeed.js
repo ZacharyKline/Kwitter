@@ -39,12 +39,15 @@ class Livefeed extends Component {
               <MessagePlatform />
               <br />
               <br />
-              <HomeFeed />
+              <HomeFeed width={6} />
               <br />
               <br />
             </Segment>
           </Grid.Column>
           <Grid.Column />
+          <Grid.Column>
+            <UsersList />
+          </Grid.Column>
         </Grid>
       </React.Fragment>
     );

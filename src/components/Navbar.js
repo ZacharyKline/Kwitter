@@ -14,7 +14,6 @@ export default class Navbar extends Component {
 
   render() {
     const { activeItem } = this.state;
-
     return (
       <List>
         <Menu style={{ backgroundColor: "#5D9DE6" }}>
@@ -26,9 +25,6 @@ export default class Navbar extends Component {
           </Link>
           <Link to="/">
             <Menu.Item name="landing" active={activeItem === "landing"} />
-          </Link>
-          <Link to="/users">
-            <Menu.Item name="users" active={activeItem === "users"} />
           </Link>
           <Logout />
         </Menu>
