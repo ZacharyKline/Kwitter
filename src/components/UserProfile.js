@@ -49,7 +49,13 @@ class UserProfile extends Component {
         <Grid columns="equal">
           <Grid.Column>
             <Segment style={{ backgroundColor: "#5D9DE600" }}>
-              <Card style={{ backgroundColor: "#5D9DE6" }}>
+              <Card
+                style={{
+                  backgroundColor: "#5D9DE6",
+                  height: "100%",
+                  width: "100%"
+                }}
+              >
                 {/* userInfo */}
                 <Segment>
                   <img
