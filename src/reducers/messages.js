@@ -2,7 +2,7 @@ import {
   MESSAGE_POST,
   MESSAGE_SUCCESS,
   MESSAGE_FAIL,
-  GET_MESSAGES_SUCCESS,
+  GET_MESSAGES_SUCCESS
 } from "../actions";
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
   message_success: false,
   message_fail: false
 };
-// made changes to code to allow messages to filter through correctly 
+// made changes to code to allow messages to filter through correctly
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -26,17 +26,17 @@ export default (state = initialState, action) => {
         message_success: true,
         message_fail: false
       };
-    case MESSAGE_FAIL:
-      return {
-        messages: [state],
-        message_success: false,
-        message_fail: true
-      };
     case MESSAGE_POST:
       const newMessage = { ...action.payload.message };
       return {
         ...state,
         messages: [newMessage, ...state.messages]
+      };
+    case MESSAGE_FAIL:
+      return {
+        messages: [state],
+        message_success: false,
+        message_fail: true
       };
     default:
       return state;

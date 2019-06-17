@@ -7,17 +7,17 @@ class EditProfile extends Component {
   componentDidMount() {
     this.props.setUserInfo(this.props.id);
   }
- 
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleEditProfile = event => {
     event.preventDefault();
-    console.log(this.props.id)
+    console.log(this.props.id);
     let inputObj = {
       displayName: this.state.displayName,
-      about: this.state.about,
+      about: this.state.about
       // password: this.state.password
     };
     this.props.editProfile(inputObj);
@@ -70,7 +70,7 @@ class EditProfile extends Component {
                           type="submit"
                           value="submit"
                           onSubmit={this.handleEditProfile}
-                          color='teal'
+                          color="teal"
                         >
                           Save Edits
                         </Button>

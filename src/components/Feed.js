@@ -13,9 +13,8 @@ class HomeFeed extends Component {
     clearInterval(this.messagePollingID);
   }
   render() {
-    console.log(this.props.messages)
     const messages = this.props.message.map((message, index) => (
-      <Message 
+      <Message
         key={index}
         date={message.createdAt}
         text={message.text}
@@ -27,9 +26,7 @@ class HomeFeed extends Component {
     ));
     return (
       <React.Fragment>
-        <Feed>
-          {messages}
-        </Feed>
+        <Feed style={{ flex: 1, alignItems: "stretch" }}>{messages}</Feed>
         <br />
         <br />
       </React.Fragment>
@@ -39,14 +36,13 @@ class HomeFeed extends Component {
 
 const mapStateToProps = state => ({
   message: state.messages.messages
-})
+});
 
 const mapDispatchToProps = {
   getMessages
-}
-
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeFeed)
+)(HomeFeed);
