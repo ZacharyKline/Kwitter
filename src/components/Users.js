@@ -22,7 +22,8 @@ class UsersList extends Component {
               <img
                 style={{
                   height: 75,
-                  width: 75
+                  width: 75,
+                  margin: "auto"
                 }}
                 src={pictureSource}
                 alt="Default user profile"
