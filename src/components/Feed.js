@@ -21,6 +21,7 @@ class HomeFeed extends Component {
         // likes={message.likes.length}
         userName={message.username}
         displayName={message.displayName}
+        id= {message.id}
       />
     ));
     return (
