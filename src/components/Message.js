@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Icon, Feed, Card, Button } from "semantic-ui-react";
-import moment from "moment";
+// import moment from "moment";
 import { handleDeleteMessage } from "../actions";
 import { connect } from "react-redux";
 import { getMessages } from "../actions/";
