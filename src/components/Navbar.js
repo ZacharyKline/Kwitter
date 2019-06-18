@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Menu, List } from "semantic-ui-react";
 import Logout from "./Logout";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -9,7 +10,7 @@ styleLink.href =
   "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
 document.head.appendChild(styleLink);
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   state = { activeItem: "home" };
 
   render() {
@@ -23,12 +24,17 @@ export default class Navbar extends Component {
           <Link to="/profile">
             <Menu.Item name="profile" active={activeItem === "profile"} />
           </Link>
-          <Link to="/">
-            <Menu.Item name="landing" active={activeItem === "landing"} />
-          </Link>
-          <Logout />
+          {this.props.auth.login ? <Logout /> : ""}
         </Menu>
       </List>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);

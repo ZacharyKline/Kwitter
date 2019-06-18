@@ -23,7 +23,7 @@ class Livefeed extends Component {
               <Card>
                 <Card.Content>
                   <Image
-                    style={{ width: 200, height: 200 }}
+                    style={{ width: "100%", height: "100%" }}
                     src={this.props.pictureLocation}
                   />
                   <br />
@@ -51,8 +51,9 @@ class Livefeed extends Component {
             </Segment>
           </Grid.Column>
           <Grid.Column />
-          <Grid.Column>
-            <Segment>
+          <Grid.Column style={{ border: "none" }}>
+            <Segment style={{ backgroundColor: "#405DBA", border: "none" }}>
+              <h1>Users you may know!</h1>
               <UsersList />
             </Segment>
           </Grid.Column>
