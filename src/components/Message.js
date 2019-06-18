@@ -3,11 +3,13 @@ import { Icon, Feed, Card, Button } from "semantic-ui-react";
 import moment from "moment";
 import { handleDeleteMessage } from "../actions";
 import { connect } from "react-redux";
+import { getMessages } from "../actions/";
 
 class Message extends Component {
   // made changes to add user who has posted a message
 
   render() {
+    console.log(this.props);
     return (
       <Feed.Event>
         <Card style={{ backgroundColor: "lightgrey", width: "100%" }}>
@@ -38,9 +40,12 @@ class Message extends Component {
                 {this.props.likes} Likes
                 <br />
               </Feed.Like>
-              <Button onClick={(event) => this.props.handleDeleteMessage(this.props.id)} color="blue">
-                   <Icon name="delete" /> Delete Message{" "}
-                 </Button>
+              <Button
+                onClick={event => this.props.handleDeleteMessage(this.props.id)}
+                color="blue"
+              >
+                <Icon name="delete" /> Delete Message{" "}
+              </Button>
             </Feed.Content>
           </Card.Content>
         </Card>
@@ -53,12 +58,10 @@ class Message extends Component {
 
 const mapDispatchToProps = {
   handleDeleteMessage,
+  getMessages
 };
 
-
-export default connect(null, mapDispatchToProps)(Message)
-
-
- 
-
- 
+export default connect(
+  null,
+  mapDispatchToProps
+)(Message);

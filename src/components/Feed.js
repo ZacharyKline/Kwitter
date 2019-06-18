@@ -21,12 +21,12 @@ class HomeFeed extends Component {
         // likes={message.likes.length}
         userName={message.username}
         displayName={message.displayName}
-        id= {message.id}
+        id={message.id}
       />
     ));
     return (
       <React.Fragment>
-        <Feed style={{ flex: 1, alignItems: "stretch" }}>{messages}</Feed>
+        <Feed>{messages}</Feed>
         <br />
         <br />
       </React.Fragment>

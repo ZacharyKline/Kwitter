@@ -5,7 +5,7 @@ import HomeFeed from "./Feed";
 import { Card, Image, Grid, Segment } from "semantic-ui-react";
 import MessagePlatform from "./MessagePlatform";
 import UsersList from "./Users";
-import {domain} from '../actions/constants'
+import { domain } from "../actions/constants";
 
 //TODO: decide what will be displayed
 
@@ -22,9 +22,12 @@ class Livefeed extends Component {
             <Segment style={{ backgroundColor: "#5D9DE600" }}>
               <Card>
                 <Card.Content>
-                  <Image style={{width: 200, height: 200}} src={this.props.pictureLocation}/>
-                  <br/>
-                  <br/>
+                  <Image
+                    style={{ width: 200, height: 200 }}
+                    src={this.props.pictureLocation}
+                  />
+                  <br />
+                  <br />
                   <Card.Header>
                     Display Name: {this.props.displayName}
                   </Card.Header>
@@ -66,7 +69,7 @@ function mapStateToProps({ auth, editProfile, messages }) {
     about: editProfile.about,
     pictureLocation: domain + editProfile.pictureLocation,
     // password: editProfile.password,
-    lastUpdated: editProfile.lastUpdated
+    lastUpdated: editProfile.createdAt
   };
 }
 
