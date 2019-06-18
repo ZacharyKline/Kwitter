@@ -17,12 +17,27 @@ class Livefeed extends Component {
   render() {
     return (
       <React.Fragment>
-        <Grid columns="equal" padded>
+        <Grid columns="equal">
           <Grid.Column>
-            <Segment style={{ backgroundColor: "#5D9DE600" }}>
+
+            <Segment.Group style={{ 
+              backgroundColor: "#5D9DE600", 
+              margin: 20,
+              padding: 1,
+               }}>
               <Card>
+              <Image size='medium' bordered 
+              style={{ 
+                }}
+                src={this.props.pictureLocation}/>
+
+              <Segment style={{ 
+                  backgroundColor: "#5D9DE6", 
+                  opacity: .8,
+                  margin: 1,
+                  
+                }}>
                 <Card.Content>
-                  <Image style={{width: 200, height: 200}} src={this.props.pictureLocation}/>
                   <br/>
                   <br/>
                   <Card.Header>
@@ -32,16 +47,29 @@ class Livefeed extends Component {
                     About Me: {this.props.about}
                   </Card.Description>
                 </Card.Content>
+                </Segment>
               </Card>
-            </Segment>
+            </Segment.Group>
+
           </Grid.Column>
-          <Grid.Column width={7}>
-            <Segment style={{ backgroundColor: "#405DBA" }}>
+          <Grid.Column width={5}>
+            <Segment style={{ 
+              backgroundColor: "#407DBA",
+              margin: 20,
+              opacity: .9,
+          width: 680,
+
+              }}>
               <MessagePlatform />
               <br />
               <br />
             </Segment>
-            <Segment>
+            <Segment style={{ 
+                  backgroundColor: "#407DBA",
+                  margin: 20,
+                  opacity: .9,
+                  width: 680,
+                }} >
               <HomeFeed />
               <br />
               <br />
@@ -49,7 +77,12 @@ class Livefeed extends Component {
           </Grid.Column>
           <Grid.Column />
           <Grid.Column>
-            <Segment>
+              
+            <Segment style={{ 
+                  backgroundColor: "#407DBA",
+                  margin: 20,
+                  opacity: .9,
+                }}>
               <UsersList />
             </Segment>
           </Grid.Column>

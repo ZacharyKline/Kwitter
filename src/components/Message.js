@@ -9,8 +9,8 @@ class Message extends Component {
 
   render() {
     return (
-      <Feed.Event>
-        <Card style={{ backgroundColor: "lightgrey", width: "100%" }}>
+      <Feed.Event >
+        <Card style={{ backgroundColor: "lightgrey", width: "100%"}}>
           <Card.Content>
             <Feed.Label>
               <img
@@ -19,13 +19,13 @@ class Message extends Component {
                 style={{ height: 40, width: 40 }}
               />
             </Feed.Label>
-            <Feed.Content>
+            <Feed.Content >
               <Feed.Summary>
                 <Feed.User> {this.props.displayName}</Feed.User>
                 <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
                 <br />
               </Feed.Summary>
-              <Feed.Meta style={{ backgroundColor: "white" }}>
+              <Feed.Meta style={{ backgroundColor: "lightgrey" }}>
                 {this.props.text}
                 <br />
                 <br />
@@ -37,6 +37,7 @@ class Message extends Component {
                 </button>
                 {this.props.likes} Likes
                 <br />
+                <br></br>
               </Feed.Like>
               <Button onClick={(event) => this.props.handleDeleteMessage(this.props.id)} color="blue">
                    <Icon name="delete" /> Delete Message{" "}

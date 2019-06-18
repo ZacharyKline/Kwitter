@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card } from "semantic-ui-react";
+import { Card, Image } from "semantic-ui-react";
 import getUsers from "../actions/getUsers";
 import { connect } from "react-redux";
 import defaultPicture from "../img/avatar.jpeg";
@@ -19,18 +19,19 @@ class UsersList extends Component {
         {this.props.usersList.map(user => {
           if (user.id % 30 === 0) {
             return (
-              <Card key={user.id}>
-                <img
+              <Card style={{
+                background: "#5D9DE9",
+              }}
+              key={user.id}>
+                <Image  bordered
                   style={{
-                    height: 75,
-                    width: 75,
-                    margin: "auto"
+                    margin: 20,
                   }}
                   src={pictureSource}
                   alt="Default user profile"
                 />
-                <h3>Display Name: {user.displayName}</h3>
-                <p>Username: {user.username}</p>
+                <h3 id= "userOnlineDisplay">Display Name: {user.displayName}</h3>
+                <p id= "userOnline">Username: {user.username}</p>
               </Card>
             );
           } else {
