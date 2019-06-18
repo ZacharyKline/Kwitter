@@ -18,7 +18,6 @@ const login = loginData => dispatch => {
   dispatch({
     type: LOGIN
   });
-  console.log(loginData);
   return fetch(url + "/login", {
     method: "POST",
     headers: jsonHeaders,
@@ -36,7 +35,6 @@ const login = loginData => dispatch => {
         dispatch({ type: LOGIN_FAIL, payload: err.message })
       );
     });
-    
 };
 
 export const loginThenGoToUserProfile = loginData => dispatch => {
@@ -69,6 +67,6 @@ const logout = () => (dispatch, getState) => {
 };
 
 export const logoutThenGoToLanding = () => dispatch => {
-  dispatch(push("/"))
+  dispatch(push("/"));
   return dispatch(logout());
 };

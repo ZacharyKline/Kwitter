@@ -31,10 +31,10 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
   return {
     auth: state.auth
   };
-}
+};
 
 export default connect(mapStateToProps)(Navbar);
