@@ -8,6 +8,7 @@ class Message extends Component {
   // made changes to add user who has posted a message
 
   render() {
+    const profilePaged = this.props.router === '/profile'
     return (
       <Feed.Event>
         <Card style={{ backgroundColor: "lightgrey", width: "100%" }}>
@@ -38,9 +39,9 @@ class Message extends Component {
                 {this.props.likes} Likes
                 <br />
               </Feed.Like>
-              <Button onClick={(event) => this.props.handleDeleteMessage(this.props.id)} color="blue">
+              {profilePaged ? <Button onClick={(event) => this.props.handleDeleteMessage(this.props.id)} color="blue">
                    <Icon name="delete" /> Delete Message{" "}
-                 </Button>
+                 </Button> : ''}
             </Feed.Content>
           </Card.Content>
         </Card>
@@ -51,12 +52,18 @@ class Message extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    router: state.router.location.pathname
+  }
+}
+
 const mapDispatchToProps = {
   handleDeleteMessage,
 };
 
 
-export default connect(null, mapDispatchToProps)(Message)
+export default connect(mapStateToProps, mapDispatchToProps)(Message)
 
 
  
