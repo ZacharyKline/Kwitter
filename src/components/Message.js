@@ -9,7 +9,7 @@ class Message extends Component {
   // made changes to add user who has posted a message
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const profilePaged = this.props.router === "/profile";
     return (
       <Feed.Event>
@@ -25,7 +25,7 @@ class Message extends Component {
             <Feed.Content>
               <Feed.Summary>
                 <Feed.User> {this.props.displayName}</Feed.User>
-                <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
+                {/* <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date> */}
                 <br />
               </Feed.Summary>
               <Feed.Meta style={{ backgroundColor: "white" }}>

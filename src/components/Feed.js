@@ -12,11 +12,12 @@ class HomeFeed extends Component {
   componentWillUnmount() {
     clearInterval(this.messagePollingID);
   }
+
   render() {
     const messages = this.props.message.map((message, index) => (
       <Message
         key={index}
-        date={message.createdAt}
+        date={message.updatedAt}
         text={message.text}
         // likes={message.likes.length}
         userName={message.username}
@@ -24,6 +25,7 @@ class HomeFeed extends Component {
         id={message.id}
       />
     ));
+    // console.log(this.props.message);
     return (
       <React.Fragment>
         <Feed>{messages}</Feed>
