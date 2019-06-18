@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { Icon, Feed, Card, Button } from "semantic-ui-react";
-import moment from "moment";
+// import moment from "moment";
 import { handleDeleteMessage } from "../actions";
 import { connect } from "react-redux";
+import { getMessages } from "../actions/";
 
 class Message extends Component {
   // made changes to add user who has posted a message
 
   render() {
+    // console.log(this.props);
+    const profilePaged = this.props.router === "/profile";
     return (
       <Feed.Event >
         <Card style={{ backgroundColor: "lightgrey", width: "100%"}}>
@@ -22,7 +25,7 @@ class Message extends Component {
             <Feed.Content >
               <Feed.Summary>
                 <Feed.User> {this.props.displayName}</Feed.User>
-                <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
+                {/* <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date> */}
                 <br />
               </Feed.Summary>
               <Feed.Meta style={{ backgroundColor: "lightgrey" }}>
@@ -39,9 +42,18 @@ class Message extends Component {
                 <br />
                 <br></br>
               </Feed.Like>
-              <Button onClick={(event) => this.props.handleDeleteMessage(this.props.id)} color="blue">
-                   <Icon name="delete" /> Delete Message{" "}
-                 </Button>
+              {profilePaged ? (
+                <Button
+                  onClick={event =>
+                    this.props.handleDeleteMessage(this.props.id)
+                  }
+                  color="blue"
+                >
+                  <Icon name="delete" /> Delete Message{" "}
+                </Button>
+              ) : (
+                ""
+              )}
             </Feed.Content>
           </Card.Content>
         </Card>
@@ -52,14 +64,18 @@ class Message extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  handleDeleteMessage,
+const mapStateToProps = state => {
+  return {
+    router: state.router.location.pathname
+  };
 };
 
+const mapDispatchToProps = {
+  handleDeleteMessage,
+  getMessages
+};
 
-export default connect(null, mapDispatchToProps)(Message)
-
-
- 
-
- 
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Message);

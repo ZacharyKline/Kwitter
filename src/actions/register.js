@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-
+import { loginThenGoToUserProfile as login } from "../actions";
 
 export const REGISTER = "REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -8,6 +8,7 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 const url = domain;
 
 const register = registerData => dispatch => {
+  console.log(registerData);
   dispatch({
     type: REGISTER
   });
@@ -23,6 +24,8 @@ const register = registerData => dispatch => {
         type: REGISTER_SUCCESS,
         payload: result
       });
+    }).then(result => {
+      console.log(result);
     })
     .catch(err => {
       console.warn(err.message);
@@ -33,6 +36,9 @@ const register = registerData => dispatch => {
 };
 
 export const registerThenGoToUserProfile = registerData => dispatch => {
-  return dispatch(register(registerData)).then(() => alert('Log in now!')
+  return dispatch(register(registerData)).then(() => dispatch(login({
+    username: registerData.username,
+    password: registerData.password
+  }))
   );
 };

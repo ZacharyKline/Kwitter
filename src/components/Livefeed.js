@@ -5,7 +5,7 @@ import HomeFeed from "./Feed";
 import { Card, Image, Grid, Segment } from "semantic-ui-react";
 import MessagePlatform from "./MessagePlatform";
 import UsersList from "./Users";
-import {domain} from '../actions/constants'
+import { domain } from "../actions/constants";
 
 //TODO: decide what will be displayed
 
@@ -99,7 +99,7 @@ function mapStateToProps({ auth, editProfile, messages }) {
     about: editProfile.about,
     pictureLocation: domain + editProfile.pictureLocation,
     // password: editProfile.password,
-    lastUpdated: editProfile.lastUpdated
+    lastUpdated: editProfile.createdAt
   };
 }
 

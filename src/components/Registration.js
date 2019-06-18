@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 
 export class Registration extends Component {
   state = { username: "", displayName: "", password: "" };
-  handleRegister = e => {
+
+  handleRegister = (e, handleLogin) => {
     e.preventDefault();
     this.props.register(this.state);
   };

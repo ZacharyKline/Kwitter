@@ -8,5 +8,6 @@ export * from "./editProfile";
 export * from "./users";
 export * from "./editProfile";
 // export * from './getUsers'
+export * from "./getMessages";
 
 //TODO: create pages
