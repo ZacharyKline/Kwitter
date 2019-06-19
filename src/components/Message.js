@@ -25,7 +25,7 @@ class Message extends Component {
             <Feed.Content>
               <Feed.Summary>
                 <Feed.User> {this.props.displayName}</Feed.User>
-                <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
+                {/* <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date> */}
                 <br />
               </Feed.Summary>
               <Feed.Meta
