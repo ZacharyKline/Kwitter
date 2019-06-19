@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import { LoginForm, UserProfile } from ".";
-import Livefeed from "./Livefeed";
-import EditProfile from "./editProfile";
+import Livefeed from "./UsersFeed";
+import EditProfile from "./UpdateInfo";
 import Navbar from "./Navbar";
 
 class App extends Component {
