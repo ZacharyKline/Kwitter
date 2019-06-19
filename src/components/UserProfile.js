@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Icon, Header, Segment, Button, Grid } from "semantic-ui-react";
+import { Card, Icon, Header, Segment, Button, Grid, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { deleteUserThenGoToLoginPage as handleDeleteUser } from "../actions";
 import { Link } from "react-router-dom";
@@ -11,8 +11,9 @@ import {
 import { domain } from "../actions/constants";
 import defaultPicture from "../img/avatar.jpeg";
 // import moment from 'moment'
-import { toggleLike } from "../actions/";
-import Message from "./Message";
+import { toggleLike } from "../actions/"
+import Message from "./Message"
+// import { relative } from "path";
 
 //TODO: decide what will be displayed
 
@@ -41,32 +42,38 @@ class UserProfile extends Component {
       <React.Fragment>
         <Grid columns="equal">
           <Grid.Column>
-            <Segment style={{ backgroundColor: "#5D9DE600" }}>
-              <Card
-                style={{
-                  backgroundColor: "#5D9DE6",
-                  height: "100%",
-                  width: "100%"
-                }}
-              >
-                {/* userInfo */}
-                <Segment>
-                  <img
-                    style={{ height: 150, width: 150 }}
+            
+            <Segment.Group style={{ 
+              backgroundColor: "#5D9DE600", 
+              margin: 15,
+               }}>
+            
+            {/* seperate area for image due to styling conflict */}
+                  <Image size='medium' bordered
+                    style={{ 
+                      }}
                     src={pictureSource}
                     alt="Default user profile"
                   />
-                </Segment>
-                <div>Change your picture:</div>
+
+                <Card 
+                style={{ 
+                  backgroundColor: "#5D9DE6", 
+                  opacity: .8,
+                }}>
+                {/* userInfo */}
+                <div id= "profilePIC">Change your picture:</div>
                 <form onSubmit={this.handleUploadPicture}>
                   <input type="file" name="picture" />
                   <br />
                   <br />
-                  <Button type="submit" color="teal">
+                  <Button style={{ 
+                      margin: 5,
+                      }} 
+                      type="submit" color="teal">
                     Upload a new picture
                   </Button>
                 </form>
-
                 <Card.Content>
                   <Card.Header>Username:</Card.Header>
                   <Card.Meta>{this.props.username}</Card.Meta>
@@ -84,29 +91,38 @@ class UserProfile extends Component {
                     <Card.Meta>{this.props.about}</Card.Meta>
                   </Card.Header>
                 </Card.Content>
-
                 <Header as="h4">
                   <Link to="/editprofile">
-                    <Button color="teal">
+                    <Button  style={{ 
+                      margin: 5,
+                      }} 
+                      color="teal">
                       <Icon name="edit" /> Edit Profile{" "}
                     </Button>
                   </Link>
-
-                  <br />
-                  <br />
-
-                  <Button onClick={this.props.handleDeleteUser} color="red">
+                  <Button style={{ 
+                      margin: 5,
+                      }} 
+                       onClick={this.props.handleDeleteUser} color="red">
                     <Icon name="delete" /> Delete Profile{" "}
                   </Button>
                 </Header>
               </Card>
-            </Segment>
+
+            </Segment.Group>
+
           </Grid.Column>
 
-          <Grid.Column width={6}>
-            <Segment style={{ backgroundColor: "#405DBA" }}>
-              <Card.Description>
-                <h1>Your Message History</h1>
+          <Grid.Column width={8}>
+          <br></br>
+         
+            <Segment style={{ 
+              backgroundColor: "#407DBA",
+              opacity: .8,
+              margin: 15,
+            }}>
+               <Card.Description>
+                <h1 id= "messageHistory">Your Message History</h1>
               </Card.Description>
 
               {this.props.messages.map(message => {

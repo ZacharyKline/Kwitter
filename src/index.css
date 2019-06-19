@@ -104,3 +104,21 @@ ui.vertical.divider:after, ui.vertical.divider:before{
   height: 30px;
 
 }
+
+#profilePIC {
+  padding: 5px
+}
+
+#messageHistory {
+  padding: 5px;
+}
+
+#userOnlineDisplay {
+  padding: 5px;
+  margin: 0%;
+}
+
+#userOnline {
+  padding: 5px;
+  margin: 0%;
+}
