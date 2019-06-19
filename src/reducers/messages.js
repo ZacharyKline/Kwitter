@@ -3,7 +3,7 @@ import {
   MESSAGE_SUCCESS,
   MESSAGE_FAIL,
   GET_MESSAGES_SUCCESS
-} from "../actions";
+} from "../actions/";
 
 const initialState = {
   messages: [],
@@ -27,9 +27,9 @@ export default (state = initialState, action) => {
         message_fail: false
       };
     case MESSAGE_POST:
-      const newMessage = { ...action.payload.message };
+      const newMessage = { ...action.payload };
       return {
-        ...state,
+        // ...state,
         messages: [newMessage, ...state.messages]
       };
     case MESSAGE_FAIL:
