@@ -11,8 +11,8 @@ import {
 import { domain } from "../actions/constants";
 import defaultPicture from "../img/avatar.jpeg";
 // import moment from 'moment'
-import { toggleLike } from "../actions/"
-import Message from "./Message"
+import { toggleLike } from "../actions/";
+import Message from "./Message";
 
 //TODO: decide what will be displayed
 
@@ -42,7 +42,13 @@ class UserProfile extends Component {
         <Grid columns="equal">
           <Grid.Column>
             <Segment style={{ backgroundColor: "#5D9DE600" }}>
-              <Card style={{ backgroundColor: "#5D9DE6" }}>
+              <Card
+                style={{
+                  backgroundColor: "#5D9DE6",
+                  height: "100%",
+                  width: "100%"
+                }}
+              >
                 {/* userInfo */}
                 <Segment>
                   <img
@@ -105,6 +111,7 @@ class UserProfile extends Component {
 
               {this.props.messages.map(message => {
                 return (
+<<<<<<< HEAD
                   <Message 
                   key={message.id}
                   date={message.createdAt}
@@ -149,8 +156,54 @@ class UserProfile extends Component {
             //           </Card.Content>
             //         </Card>
             //       </React.Fragment>
+=======
+                  <Message
+                    key={message.id}
+                    date={message.createdAt}
+                    text={message.text}
+                    // likes={message.likes.length}
+                    userName={message.username}
+                    displayName={message.displayName}
+                    id={message.id}
+                  />
+                  //       <React.Fragment>
+                  //         <Card style={{ backgroundColor: "lightgrey" }}>
+                  //           <Card.Content>
+                  //           <Feed.Content>
+                  //   <Feed.Summary>
+                  //     <Feed.User>{this.props.displayName}</Feed.User>
+                  //     <br />
+                  //     <Feed.Date>{moment(message.createdAt).fromNow()}</Feed.Date>
+                  //   </Feed.Summary>
+                  //   <Feed.Meta style={{ backgroundColor: "white"}}>
+                  //     {message.text}
+                  //   <br />
+                  //   <br />
+                  //   </Feed.Meta>
+                  //   <br />
+                  //   <Feed.Like>
+                  //     <button
+                  //     onClick={event => {
+                  //       event.preventDefault()
+                  //       this.props.toggleLike(message.id, true)
+                  //     }} href='#'>
+                  //     <Icon name="like" />
+                  //     </button>
+                  //     {message.likes.length} Likes
+                  //     <br />
+                  //   </Feed.Like>
+                  //   <br />
+                  //       <Button onClick={(event) => this.props.handleDeleteMessage(this.props.id)} color="blue">
+                  //         <Icon name="delete" /> Delete Message{" "}
+                  //       </Button>
+                  // </Feed.Content>
+                  //           </Card.Content>
+                  //         </Card>
+                  //       </React.Fragment>
+>>>>>>> e6c1329105682cbdd0db9eb0924bd529ae1f0f07
                 );
               })}
+              <br />
               <br />
             </Segment>
           </Grid.Column>

@@ -3,12 +3,14 @@ import { Icon, Feed, Card, Button } from "semantic-ui-react";
 import moment from "moment";
 import { handleDeleteMessage, toggleLikeThenUpdateMessageById as toggleLike } from "../actions";
 import { connect } from "react-redux";
+import { updateMessageById } from "../actions/";
 
 class Message extends Component {
   // made changes to add user who has posted a message
 
   render() {
-    const profilePaged = this.props.router === '/profile'
+    // console.log(this.props);
+    const profilePaged = this.props.router === "/profile";
     return (
       <Feed.Event>
         <Card style={{ backgroundColor: "lightgrey", width: "100%" }}>
@@ -23,7 +25,7 @@ class Message extends Component {
             <Feed.Content>
               <Feed.Summary>
                 <Feed.User> {this.props.displayName}</Feed.User>
-                <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
+                {/* <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date> */}
                 <br />
               </Feed.Summary>
               <Feed.Meta style={{ backgroundColor: "white" }}>
@@ -39,9 +41,18 @@ class Message extends Component {
                 {this.props.likes} Likes
                 <br />
               </Feed.Like>
-              {profilePaged ? <Button onClick={(event) => this.props.handleDeleteMessage(this.props.id)} color="blue">
-                   <Icon name="delete" /> Delete Message{" "}
-                 </Button> : ''}
+              {profilePaged ? (
+                <Button
+                  onClick={event =>
+                    this.props.handleDeleteMessage(this.props.id)
+                  }
+                  color="blue"
+                >
+                  <Icon name="delete" /> Delete Message{" "}
+                </Button>
+              ) : (
+                ""
+              )}
             </Feed.Content>
           </Card.Content>
         </Card>
@@ -65,10 +76,7 @@ const mapDispatchToProps = {
   toggleLike
 };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Message)
-
-
- 
-
- 
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Message);
