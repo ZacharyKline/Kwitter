@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Icon, Feed, Card, Button } from "semantic-ui-react";
-// import moment from "moment";
+import moment from "moment";
 import { handleDeleteMessage } from "../actions";
 import { connect } from "react-redux";
 import { getMessages } from "../actions/";
@@ -12,8 +12,8 @@ class Message extends Component {
     // console.log(this.props);
     const profilePaged = this.props.router === "/profile";
     return (
-      <Feed.Event >
-        <Card style={{ backgroundColor: "lightgrey", width: "100%"}}>
+      <Feed.Event>
+        <Card style={{ backgroundColor: "lightgrey", width: "100%" }}>
           <Card.Content>
             <Feed.Label>
               <img
@@ -22,13 +22,19 @@ class Message extends Component {
                 style={{ height: 40, width: 40 }}
               />
             </Feed.Label>
-            <Feed.Content >
+            <Feed.Content>
               <Feed.Summary>
                 <Feed.User> {this.props.displayName}</Feed.User>
-                {/* <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date> */}
+                <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
                 <br />
               </Feed.Summary>
-              <Feed.Meta style={{ backgroundColor: "lightgrey" }}>
+              <Feed.Meta
+                style={{
+                  backgroundColor: "lightgrey",
+                  "overflow-wrap": "break-word",
+                  "word-wrap": "break-word"
+                }}
+              >
                 {this.props.text}
                 <br />
                 <br />
@@ -40,7 +46,7 @@ class Message extends Component {
                 </button>
                 {this.props.likes} Likes
                 <br />
-                <br></br>
+                <br />
               </Feed.Like>
               {profilePaged ? (
                 <Button

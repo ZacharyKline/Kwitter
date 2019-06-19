@@ -46,7 +46,7 @@ class MessagePlatform extends Component {
                 <Comment.Text>Status:</Comment.Text>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group className="sendMessageBox">
-                    <Form.Input 
+                    <Form.Input
                       className="messageInputBox"
                       placeholder="What's on your mind?"
                       name="text"
@@ -59,7 +59,7 @@ class MessagePlatform extends Component {
                       labelPosition="left"
                       icon="edit"
                       value={text}
-                      color='teal'
+                      color="teal"
                     />
                   </Form.Group>
                 </Form>
@@ -78,7 +78,7 @@ const mapDispatchToProps = {
 
 function mapStateToProps({ messages }) {
   return {
-    messages_failed: messages.messages_failed
+    messages: messages.messages
   };
 }
 
