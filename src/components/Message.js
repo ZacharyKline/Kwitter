@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Feed, Card, Button } from "semantic-ui-react";
 import moment from "moment";
-import { handleDeleteMessage } from "../actions";
+import { handleDeleteMessage, toggleLikeThenUpdateMessageById as toggleLike } from "../actions";
 import { connect } from "react-redux";
 
 class Message extends Component {
@@ -33,7 +33,7 @@ class Message extends Component {
               </Feed.Meta>
               <br />
               <Feed.Like>
-                <button>
+                <button onClick={event => this.props.toggleLike(this.props.id)}>
                   <Icon name="like" />
                 </button>
                 {this.props.likes} Likes
@@ -54,12 +54,15 @@ class Message extends Component {
 
 const mapStateToProps = state => {
   return {
-    router: state.router.location.pathname
+    router: state.router.location.pathname,
+    message: state.messages.messages
+
   }
 }
 
 const mapDispatchToProps = {
   handleDeleteMessage,
+  toggleLike
 };
 
 

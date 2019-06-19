@@ -18,7 +18,7 @@ class HomeFeed extends Component {
         key={index}
         date={message.createdAt}
         text={message.text}
-        // likes={message.likes.length}
+        likes={message.likes.length}
         userName={message.username}
         displayName={message.displayName}
         id= {message.id}

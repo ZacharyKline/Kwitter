@@ -20,7 +20,7 @@ class Livefeed extends Component {
         <Grid columns="equal" padded>
           <Grid.Column>
             <Segment style={{ backgroundColor: "#5D9DE600" }} >
-              <Card>
+              <Card >
                 <Card.Content>
                   <Image style={{width: '100%', height: '100%'}} src={this.props.pictureLocation}/>
                   <br/>
@@ -41,7 +41,7 @@ class Livefeed extends Component {
               <br />
               <br />
             </Segment>
-            <Segment>
+            <Segment style={{ backgroundColor: "#5D9DE600" }}>
               <HomeFeed />
               <br />
               <br />
