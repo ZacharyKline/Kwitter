@@ -42,7 +42,8 @@ export class Registration extends Component {
             required
             onChange={this.handleChange}
           />
-
+             <br></br>
+             <br></br>
           <Button className="ui big button">
             <i className="signup icon" />
             Submit
