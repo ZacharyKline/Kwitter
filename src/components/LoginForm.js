@@ -62,7 +62,9 @@ class LoginForm extends Component {
                             required
                             onChange={this.handleChange}
                           />
-                          <Button
+                           <br></br>
+                          <br></br>
+                          <Button 
                             className=""
                             type="submit"
                             disabled={isLoading}
@@ -127,7 +129,10 @@ class LoginForm extends Component {
                             required
                             onChange={this.handleChange}
                           />
-                          <Button
+                          <br></br>
+                          <br></br>
+
+                          <Button 
                             className=""
                             type="submit"
                             disabled={isLoading}
