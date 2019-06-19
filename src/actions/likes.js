@@ -1,60 +1,82 @@
-import { jsonHeaders, domain } from '../actions/constants'
-import { getMessageById, getMessages } from '../actions/'
+import { domain, handleJsonResponse, jsonHeaders } from "./constants";
+import { updateMessageById } from "./getMessages";
 
-export const TOGGLE_LIKED = 'TOGGLE_LIKED'
-// export const REMOVE_LIKE = 'REMOVE_LIKE'
+export const REMOVE_LIKE = 'REMOVE_LIKE'
+export const REMOVE_LIKE_SUCCESS = 'REMOVE_LIKE_SUCCESS'
+export const REMOVE_LIKE_FAIL = 'REMOVE_LIKE_FAIL'
+export const ADD_LIKE = 'ADD_LIKE'
+export const ADD_LIKE_SUCCESS = 'ADD_LIKE_SUCCESS'
+export const ADD_LIKE_FAIL = 'ADD_LIKE_FAIL'
 
-const url = domain + '/likes/'
+const url = domain + '/likes'
 
-export const addLike = (messageID) => (dispatch, getState) => {
+export const toggleLike = messageId => (dispatch, getState) => {
+  console.log(messageId);
+  const userId = getState().auth.login.id
+  let messages = null
+  messages = getState().messages.messages;
+  let currentMessage = messages.find(message => {
+    return message.id === messageId;
+  });
+  console.log(currentMessage);
+
+  // }
+const like = currentMessage.likes.find(like => like.userId === userId)
+  if(like) {
+    return dispatch(removeLike(like.id))
+  } else {
+    return dispatch(addLike(messageId))
+  }
+}
+
+export const toggleLikeThenUpdateMessageById = messageId => dispatch => {
+  return dispatch(toggleLike(messageId)).then(() =>
+    dispatch(updateMessageById(messageId))
+  );
+};
+
+
+export const removeLike = (likeId) => (dispatch, getState) => {
+  dispatch({
+    type: REMOVE_LIKE
+  })
   const token = getState().auth.login.token
-
-    return fetch(url, {
-      method: "POST",
-      headers: {
-          ...jsonHeaders,
-          Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify({
-          messageId: messageID
-      })
+  return fetch(url + `/${likeId}`, {
+    method: 'DELETE',
+    headers: {Authorization: `Bearer ${token}`}
+  }).then(handleJsonResponse).then(result => {
+    return dispatch({
+      type: REMOVE_LIKE_SUCCESS,
+      payload: result
     })
+  }).catch(err => {
+    return Promise.reject(
+      dispatch ({
+        type: REMOVE_LIKE_FAIL,
+        payload: err
+      }))
+  })
 }
 
-export const toggleLike = (messageID, isUserMessages = false) => (dispatch, getState) => {
-  const userId = getState().editProfile.id
-  let message
-  if(isUserMessages) {
-    message = getState().getMessages.userMessages.find(message => message.id === messageID)
-  } else {
-    message = getState().messages.messages.find(message => message.id === messageID)
-  }
-  const like = message.likes.find(like => like.userId === userId)
-  
-  console.log(like)
-  if (like) {
-    dispatch(removeLike(like.id)).then(() => {
-      dispatch(getMessageById(messageID));
+export const addLike = messageId => (dispatch, getState) => {
+  dispatch({
+    type: ADD_LIKE
+  })
+  const token = getState().auth.login.token
+  return fetch(url, {
+    method: 'POST',
+    headers: {...jsonHeaders, Authorization: `Bearer ${token}`},
+    body: JSON.stringify({ messageId })
+  }).then(handleJsonResponse).then(result => {
+    return dispatch({
+      type: ADD_LIKE_SUCCESS,
+      payload: result
     })
-  } else {
-    dispatch(addLike(messageID)).then(() => {
-      dispatch(getMessageById(messageID));
-    })
-  }
-
-  dispatch(getMessages())
-}
-
-export const removeLike = likeId => {
-  return function(dispatch, getState){
-      const token = getState().auth.login.token
-
-      return fetch(url + likeId, {
-        method: 'DELETE',
-        headers: {
-            Authorization: `bearer ${token}`,
-            "Content-Type": "application/json"
-        }
-      })
-  }
+  }).catch(err => {
+    return Promise.reject(
+      dispatch ({
+        type: ADD_LIKE_FAIL,
+        payload: err
+      }))
+  })
 }
