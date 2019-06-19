@@ -14,7 +14,7 @@ export const toggleLike = messageId => (dispatch, getState) => {
   console.log(messageId);
   const userId = getState().auth.login.id
   let messages = null
-  messages = getState().getMessages.userMessages;
+  messages = getState().messages.messages;
   let currentMessage = messages.find(message => {
     return message.id === messageId;
   });

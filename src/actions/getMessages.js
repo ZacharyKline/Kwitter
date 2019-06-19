@@ -32,6 +32,7 @@ export const getMessages = () => dispatch => {
         return fetch(userUrl)
           .then(handleJsonResponse)
           .then(result => {
+            delete result.user.id;
             return {
               ...message,
               ...result.user
