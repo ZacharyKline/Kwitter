@@ -41,7 +41,7 @@ export const removeLike = (likeId) => (dispatch, getState) => {
     type: REMOVE_LIKE
   })
   const token = getState().auth.login.token
-  fetch(url + `/${likeId}`, {
+  return fetch(url + `/${likeId}`, {
     method: 'DELETE',
     headers: {Authorization: `Bearer ${token}`}
   }).then(handleJsonResponse).then(result => {
@@ -63,7 +63,7 @@ export const addLike = messageId => (dispatch, getState) => {
     type: ADD_LIKE
   })
   const token = getState().auth.login.token
-  fetch(url, {
+  return fetch(url, {
     method: 'POST',
     headers: {...jsonHeaders, Authorization: `Bearer ${token}`},
     body: JSON.stringify({ messageId })

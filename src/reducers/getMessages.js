@@ -61,10 +61,10 @@ export default (state = initialState, action) => {
         updateMessageByIdError: null
       }
     case UPDATE_MESSAGE_SUCCESS:
-        const newUserMessages2 = state.userMessages.filter(message => {
+        const newUserMessages2 = state.userMessages.map(message => {
           return message.id === action.payload.message.id ? action.payload.message : message
         });
-        const newMessages2 = state.messages.filter(message => {
+        const newMessages2 = state.messages.map(message => {
           return message.id === action.payload.message.id ? action.payload.message : message
         });
       return {
