@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Icon, Feed, Card, Button } from "semantic-ui-react";
-// import moment from "moment";
+import moment from "moment";
 import { handleDeleteMessage } from "../actions";
 import { connect } from "react-redux";
 import { getMessages } from "../actions/";
@@ -25,7 +25,7 @@ class Message extends Component {
             <Feed.Content>
               <Feed.Summary>
                 <Feed.User> {this.props.displayName}</Feed.User>
-                {/* <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date> */}
+                <Feed.Date>{moment(this.props.date).fromNow()}</Feed.Date>
                 <br />
               </Feed.Summary>
               <Feed.Meta style={{ backgroundColor: "white" }}>
