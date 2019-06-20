@@ -120,6 +120,7 @@ class UserProfile extends Component {
               backgroundColor: "#407DBA",
               opacity: .8,
               margin: 15,
+              
             }}>
                <Card.Description>
                 <h1 id= "messageHistory">Your Message History</h1>
