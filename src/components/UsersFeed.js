@@ -81,7 +81,7 @@ class Livefeed extends Component {
               <br />
             </Segment>
           </Grid.Column>
-          <Grid.Column />
+          <Grid.Column style={{ zIndex: "-1" }} />
           <Grid.Column>
             <Segment
               style={{
