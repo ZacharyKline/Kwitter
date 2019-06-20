@@ -61,6 +61,7 @@ class MessagePlatform extends Component {
                       icon="edit"
                       value={text}
                       color="teal"
+                      type="submit"
                     />
                   </Form.Group>
                 </Form>
