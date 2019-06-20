@@ -9,8 +9,8 @@ export const GET_USER_MESSAGES = "GET_USER_MESSAGES";
 export const GET_USER_MESSAGES_SUCCESS = "GET_USER_MESSAGES_SUCCESS";
 export const GET_USER_MESSAGES_FAILED = "GET_USER_MESSAGES_FAILED";
 export const UPDATE_MESSAGE = "UPDATE_MESSAGE";
-export const UPDATE_MESSAGE_SUCCESS = 'UPDATE_MESSAGE_SUCCESS'
-export const UPDATE_MESSAGE_FAIL = 'UPDATE_MESSAGE_FAIL'
+export const UPDATE_MESSAGE_SUCCESS = "UPDATE_MESSAGE_SUCCESS";
+export const UPDATE_MESSAGE_FAIL = "UPDATE_MESSAGE_FAIL";
 export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
 const url = domain + "/messages";
@@ -86,17 +86,19 @@ export const updateMessageById = messageId => dispatch => {
   dispatch({
     type: UPDATE_MESSAGE
   });
-  return fetch(url + `/${messageId}`).then(handleJsonResponse).then(result => {
-    return dispatch({
-      type: UPDATE_MESSAGE_SUCCESS,
-      payload: result
+  return fetch(url + `/${messageId}`)
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: UPDATE_MESSAGE_SUCCESS,
+        payload: result
+      });
     })
-  }).catch(err => {
-    return Promise.reject(
-      dispatch({ type: UPDATE_MESSAGE_FAIL, payload: err })
-    );
-  });
-
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: UPDATE_MESSAGE_FAIL, payload: err })
+      );
+    });
 };
 export const handleDeleteMessage = messageID => (dispatch, getState) => {
   const token = getState().auth.login.token;

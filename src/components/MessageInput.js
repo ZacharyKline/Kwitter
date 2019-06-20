@@ -27,18 +27,19 @@ class MessagePlatform extends Component {
     const text = this.state;
     return (
       <React.Fragment>
-        <div style={{ 
-          backgroundColor: "#5D9DE6",
-          // width: 680,
-
-          
-       }}>
-          <Comment.Group >
+        <div
+          style={{
+            backgroundColor: "#5D9DE6"
+            // width: 680,
+          }}
+        >
+          <Comment.Group>
             <Comment>
-              <Comment.Content style={{ 
-                margin: 5,
-                
-               }}>
+              <Comment.Content
+                style={{
+                  margin: 5
+                }}
+              >
                 {/* <Comment.Author as="a">User</Comment.Author>
                 <Comment.Metadata>
                   <div>2 days ago</div>

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Icon, Feed, Card, Button } from "semantic-ui-react";
-import moment from "moment";
-import { handleDeleteMessage, toggleLikeThenUpdateMessageById as toggleLike } from "../actions";
+import {
+  handleDeleteMessage,
+  toggleLikeThenUpdateMessageById as toggleLike
+} from "../actions";
 import { connect } from "react-redux";
-import { updateMessageById } from "../actions/";
 
 class Message extends Component {
   // made changes to add user who has posted a message
@@ -31,8 +32,8 @@ class Message extends Component {
               <Feed.Meta
                 style={{
                   backgroundColor: "lightgrey",
-                  "overflow-wrap": "break-word",
-                  "word-wrap": "break-word"
+                  overflowWrap: "break-word",
+                  wordWrap: "break-word"
                 }}
               >
                 {this.props.text}
@@ -74,9 +75,8 @@ const mapStateToProps = state => {
   return {
     router: state.router.location.pathname,
     message: state.messages.messages
-
-  }
-}
+  };
+};
 
 const mapDispatchToProps = {
   handleDeleteMessage,
