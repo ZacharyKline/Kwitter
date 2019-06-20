@@ -6,6 +6,8 @@ import { Card, Image, Grid, Segment } from "semantic-ui-react";
 import MessagePlatform from "./MessagePlatform";
 import UsersList from "./Users";
 import { domain } from "../actions/constants";
+import defaultPicture from "../img/avatar.jpeg";
+
 
 //TODO: decide what will be displayed
 

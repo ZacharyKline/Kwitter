@@ -55,6 +55,7 @@ class MessagePlatform extends Component {
                     <br />
                     <br />
                     <Form.Button
+                      type='submit'
                       content="Submit"
                       labelPosition="left"
                       icon="edit"
