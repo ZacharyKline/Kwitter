@@ -4,7 +4,7 @@ const initialState = {
   id: null,
   displayName: "",
   about: "",
-  password: "",
+  //   password: "",
   lastUpdated: Date.now(),
   pictureLocation: null,
   username: ""
