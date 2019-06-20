@@ -63,7 +63,7 @@ export const getUserMessages = (
   fetch(
     url +
       `?limit=${limit}&offset=${offset}` +
-      (userId ? `&userId=${userId}` : "")
+      (userId ? `&userId=${userId}` : null)
   )
     .then(handleJsonResponse)
     .then(result => {
