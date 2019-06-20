@@ -47,39 +47,43 @@ export default (state = initialState, action) => {
       let newUserMessages = state.userMessages.filter(message => {
         return message.id !== action.payload.id;
       });
-      let newMessages = state.messages.filter(message => {
-        return message.id !== action.payload.id;
-      });
+      // let newMessages = state.messages.filter(message => {
+      //   return message.id !== action.payload.id;
+      // });
       return {
         ...state,
-        userMessages: newUserMessages, messages: newMessages
+        userMessages: newUserMessages
+        // messages: newMessages
       };
     case UPDATE_MESSAGE:
       return {
         ...state,
         updateMessageByIdLoading: true,
         updateMessageByIdError: null
-      }
+      };
     case UPDATE_MESSAGE_SUCCESS:
-        const newUserMessages2 = state.userMessages.map(message => {
-          return message.id === action.payload.message.id ? action.payload.message : message
-        });
-        const newMessages2 = state.messages.map(message => {
-          return message.id === action.payload.message.id ? action.payload.message : message
-        });
+      const newUserMessages2 = state.userMessages.map(message => {
+        return message.id === action.payload.message.id
+          ? action.payload.message
+          : message;
+      });
+      const newMessages2 = state.messages.map(message => {
+        return message.id === action.payload.message.id
+          ? action.payload.message
+          : message;
+      });
       return {
         ...state,
         updateMessageByIdLoading: false,
         messages: newMessages2,
         userMessages: newUserMessages2
-
-      }
+      };
     case UPDATE_MESSAGE_FAIL:
       return {
         ...state,
         updateMessageByIdError: action.payload,
         updateMessageByIdLoading: false
-      }
+      };
     default:
       return state;
   }
