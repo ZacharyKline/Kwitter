@@ -12,9 +12,9 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/assessment---kwitter-frontend" render={() => <LoginForm />} />
-          <Route exact path="/assessment---kwitter-frontend/home" render={() => <Livefeed />} />
-          <Route exact path="/assessment---kwitter-frontend/profile" render={() => <UserProfile />} />
-          <Route exact path="/assessment---kwitter-frontend/editprofile" render={() => <EditProfile />} />
+          <Route exact path="/home" render={() => <Livefeed />} />
+          <Route exact path="/profile" render={() => <UserProfile />} />
+          <Route exact path="/editprofile" render={() => <EditProfile />} />
         </Switch>
       </React.Fragment>
     );
