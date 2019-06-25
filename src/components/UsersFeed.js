@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { setUserInfo } from "../actions";
 import HomeFeed from "./Timeline";
 import { Card, Image, Grid, Segment } from "semantic-ui-react";
-import MessagePlatform from "./MessageInput";
+import MessageInput from "./MessageInput";
 import UsersList from "./Users";
 import { domain } from "../actions/constants";
 
@@ -64,7 +64,7 @@ class Livefeed extends Component {
                 width: 680
               }}
             >
-              <MessagePlatform />
+              <MessageInput />
               <br />
               <br />
             </Segment>

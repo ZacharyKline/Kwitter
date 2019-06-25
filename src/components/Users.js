@@ -17,26 +17,31 @@ class UsersList extends Component {
     return (
       <React.Fragment>
         {this.props.usersList.map(user => {
-          if (user.id % 30 === 0) {
-            return (
-              <Card style={{
-                background: "#5D9DE9",
+          // if (user.id % 30 === 0) {
+          return (
+            <Card
+              style={{
+                background: "#5D9DE9"
               }}
-              key={user.id}>
-                <Image  bordered
-                  style={{
-                    margin: 20,
-                  }}
-                  src={pictureSource}
-                  alt="Default user profile"
-                />
-                <h3 id= "userOnlineDisplay">Display Name: {user.displayName}</h3>
-                <p id= "userOnline">Username: {user.username}</p>
-              </Card>
-            );
-          } else {
-            return null;
-          }
+              key={user.id}
+            >
+              <Image
+                bordered
+                style={{
+                  margin: "auto",
+                  height: "100px",
+                  width: "100px"
+                }}
+                src={pictureSource}
+                alt="Default user profile"
+              />
+              <h3 id="userOnlineDisplay">Display Name: {user.displayName}</h3>
+              <p id="userOnline">Username: {user.username}</p>
+            </Card>
+          );
+          // } else {
+          //   return "";
+          // }
         })}
       </React.Fragment>
     );
