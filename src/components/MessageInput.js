@@ -12,7 +12,7 @@ class MessagePlatform extends Component {
 
     event.preventDefault();
 
-    if (text.length >= 2 && text.length <= 150) {
+    if (text.length >= 2 && text.length <= 255) {
       this.props.postMessage(this.state);
       event.target.text.value = "";
       this.setState({ text: "" });

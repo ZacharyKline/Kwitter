@@ -9,7 +9,6 @@ const url = domain + "/messages";
 
 export const postMessage = messageData => dispatch => {
   const token = store.getState().auth.login.token;
-  console.log(messageData);
   return fetch(url, {
     method: "POST",
     headers: { ...jsonHeaders, Authorization: `Bearer ${token}` },
@@ -17,7 +16,6 @@ export const postMessage = messageData => dispatch => {
   })
     .then(handleJsonResponse)
     .then(result => {
-      console.log(result);
       return dispatch({
         type: MESSAGE_SUCCESS,
         payload: result
