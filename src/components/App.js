@@ -11,7 +11,7 @@ class App extends Component {
       <React.Fragment>
         <Navbar />
         <Switch>
-          <Route exact path="/" render={() => <LoginForm />} />
+          <Route exact path="/assessment---kwitter-frontend" render={() => <LoginForm />} />
           <Route exact path="/home" render={() => <Livefeed />} />
           <Route exact path="/profile" render={() => <UserProfile />} />
           <Route exact path="/editprofile" render={() => <EditProfile />} />

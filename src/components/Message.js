@@ -41,14 +41,14 @@ class Message extends Component {
                 <br />
               </Feed.Meta>
               <br />
-              <Feed.Like>
+              {/* <Feed.Like>
                 <button onClick={event => this.props.toggleLike(this.props.id)}>
                   <Icon name="like" />
                 </button>
                 {this.props.likes} Likes
                 <br />
                 <br />
-              </Feed.Like>
+              </Feed.Like> */}
               {profilePaged ? (
                 <Button
                   onClick={event =>

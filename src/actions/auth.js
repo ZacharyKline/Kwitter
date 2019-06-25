@@ -67,6 +67,6 @@ const logout = () => (dispatch, getState) => {
 };
 
 export const logoutThenGoToLanding = () => dispatch => {
-  dispatch(push("/"));
+  dispatch(push("/assessment---kwitter-frontend"));
   return dispatch(logout());
 };
