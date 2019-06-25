@@ -3,7 +3,7 @@ import { Comment, Form } from "semantic-ui-react";
 import { postMessage } from "../actions";
 import { connect } from "react-redux";
 
-class MessagePlatform extends Component {
+class MessageInput extends Component {
   state = { text: "" };
   messageLength = false;
 
@@ -87,4 +87,4 @@ function mapStateToProps({ messages }) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MessagePlatform);
+)(MessageInput);
